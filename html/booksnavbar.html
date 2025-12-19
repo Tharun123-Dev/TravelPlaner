@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Explore Destination Guides</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#111;
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:95vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("../navbarimages/nav4.jpg") center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h1{
+    font-size:72px;
+    font-weight:900;
+    text-shadow:0 10px 30px rgba(0,0,0,.6);
+}
+
+.hero p{
+    font-size:20px;
+    margin-top:15px;
+}
+
+/* ================= SECTIONS ================= */
+.section{
+    padding:90px 7%;
+}
+
+.section h2{
+    font-size:42px;
+    font-weight:900;
+    margin-bottom:40px;
+}
+
+/* ================= GRID ================= */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+/* ================= CARD ================= */
+.card{
+    position:relative;
+    height:420px;
+    border-radius:18px;
+    overflow:hidden;
+    cursor:pointer;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+    transition:.4s;
+}
+
+.card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.card:hover img{
+    transform:scale(1.1);
+    filter:brightness(70%);
+}
+
+.card-content{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    padding:25px;
+    background:linear-gradient(to top,rgba(0,0,0,.75),rgba(0,0,0,0));
+    color:white;
+}
+
+.card-content small{
+    letter-spacing:2px;
+    font-size:12px;
+    opacity:.85;
+}
+
+.card-content h3{
+    font-size:26px;
+    font-weight:800;
+    margin:8px 0;
+}
+
+.card-content p{
+    font-size:14px;
+    opacity:.9;
+}
+
+.card-content button{
+    margin-top:12px;
+    padding:10px 22px;
+    border:none;
+    border-radius:25px;
+    font-weight:700;
+    cursor:pointer;
+    background:linear-gradient(135deg,#4f46e5,#2563eb);
+    color:white;
+}
+
+/* TAG */
+.tag{
+    position:absolute;
+    top:18px;
+    left:18px;
+    background:rgba(255,255,255,.9);
+    color:#000;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:700;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#111;
+    color:#ccc;
+    padding:50px;
+    text-align:center;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+@media(max-width:768px){
+    .hero h1{font-size:42px}
+    .section h2{font-size:30px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Explore Destination Guides</h1>
+        <p>Guides • Gifts • Trending • New Releases</p>
+    </div>
+</section>
+
+<!-- TRENDING GUIDES -->
+<section class="section">
+<h2>🔥 Trending Guides</h2>
+<div class="grid">
+
+<div class="card">
+<span class="tag">TRENDING</span>
+<img src="../navbarimages/nav6.jpg">
+<div class="card-content">
+<small>EUROPE</small>
+<h3>Paris City Guide</h3>
+<p>Culture, food & iconic landmarks</p>
+<button>View Guide</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">TRENDING</span>
+<img src="../navbarimages/nav7.jpg">
+<div class="card-content">
+<small>MIDDLE EAST</small>
+<h3>Dubai Luxury Guide</h3>
+<p>Skyscrapers, shopping & desert</p>
+<button>View Guide</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">TRENDING</span>
+<img src="../navbarimages/nav4.jpg">
+<div class="card-content">
+<small>ASIA</small>
+<h3>Bali Travel Guide</h3>
+<p>Nature, temples & beaches</p>
+<button>View Guide</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- EUROPE -->
+<section class="section">
+<h2>🇪🇺 Europe Guides</h2>
+<div class="grid">
+
+<div class="card">
+<span class="tag">EUROPE</span>
+<img src="../navbarimages/nav6.jpg">
+<div class="card-content">
+<small>SWITZERLAND</small>
+<h3>Swiss Alps</h3>
+<p>Mountains, lakes & villages</p>
+<button>Explore</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">EUROPE</span>
+<img src="../navbarimages/nav8.jpg">
+<div class="card-content">
+<small>ITALY</small>
+<h3>Rome & Venice</h3>
+<p>History, food & art</p>
+<button>Explore</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">EUROPE</span>
+<img src="../navbarimages/nav9.jpg">
+<div class="card-content">
+<small>SPAIN</small>
+<h3>Barcelona</h3>
+<p>Beaches & architecture</p>
+<button>Explore</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- AMERICAS -->
+<section class="section">
+<h2>🌎 Americas</h2>
+<div class="grid">
+
+<div class="card">
+<span class="tag">USA</span>
+<img src="../navbarimages/nav4.jpg">
+<div class="card-content">
+<small>UNITED STATES</small>
+<h3>New York City</h3>
+<p>Culture, skyline & nightlife</p>
+<button>Explore</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">MEXICO</span>
+<img src="../navbarimages/nav10.jpg">
+<div class="card-content">
+<small>CANCUN</small>
+<h3>Cancún Beaches</h3>
+<p>Caribbean paradise</p>
+<button>Explore</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">PERU</span>
+<img src="../navbarimages/nav11.jpg">
+<div class="card-content">
+<small>SOUTH AMERICA</small>
+<h3>Machu Picchu</h3>
+<p>Ancient wonders</p>
+<button>Explore</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- GIFT GUIDES -->
+<section class="section">
+<h2>🎁 Gift Guides</h2>
+<div class="grid">
+
+<div class="card">
+<span class="tag">GIFTS</span>
+<img src="../navbarimages/nav12.jpg">
+<div class="card-content">
+<small>TRAVEL</small>
+<h3>Best Travel Gifts</h3>
+<p>Bags, gadgets & essentials</p>
+<button>View</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">GIFTS</span>
+<img src="../navbarimages/nav12.jpg">
+<div class="card-content">
+<small>BOOKS</small>
+<h3>Guide Books</h3>
+<p>Top destination reads</p>
+<button>View</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- NEW RELEASES -->
+<section class="section">
+<h2>🆕 New Releases</h2>
+<div class="grid">
+
+<div class="card">
+<span class="tag">NEW</span>
+<img src="../navbarimages/nav6.jpg">
+<div class="card-content">
+<small>2025</small>
+<h3>Japan Complete Guide</h3>
+<p>Tokyo, Kyoto & culture</p>
+<button>Explore</button>
+</div>
+</div>
+
+<div class="card">
+<span class="tag">NEW</span>
+<img src="../navbarimages/nav4.jpg">
+<div class="card-content">
+<small>2025</small>
+<h3>Indonesia Islands</h3>
+<p>Beyond Bali</p>
+<button>Explore</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<h3>Travel Guides</h3>
+<p>Explore • Plan • Experience</p>
+</footer>
+
+</body>
+</html>

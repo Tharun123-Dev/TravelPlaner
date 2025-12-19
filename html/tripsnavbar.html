@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Trips & Travel Guides</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= GLOBAL ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+    background:#f6f8fc;
+    color:#111;
+}
+
+/* ================= HERO ================= */
+.hero{
+    min-height:90vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url("../navbarimages/nav2.jpg") center/cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:40px;
+}
+
+.hero h1{
+    font-size:64px;
+    font-weight:900;
+}
+
+.hero p{
+    font-size:20px;
+    margin-top:15px;
+    max-width:700px;
+}
+
+/* ================= SECTION ================= */
+.section{
+    padding:90px 7%;
+}
+
+.section h2{
+    font-size:42px;
+    font-weight:900;
+    margin-bottom:25px;
+}
+
+.section p.desc{
+    max-width:700px;
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:50px;
+    color:#444;
+}
+
+/* ================= TRIP LIST ================= */
+.trip-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* ================= TRIP CARD ================= */
+.trip-card{
+    background:white;
+    border-radius:16px;
+    padding:28px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+    transition:0.35s;
+}
+
+.trip-card:hover{
+    transform:translateY(-6px);
+}
+
+.trip-card small{
+    font-size:12px;
+    letter-spacing:2px;
+    color:#777;
+}
+
+.trip-card h3{
+    font-size:24px;
+    font-weight:800;
+    margin:10px 0;
+}
+
+.trip-card p{
+    font-size:15px;
+    line-height:1.6;
+    color:#555;
+}
+
+.trip-info{
+    margin-top:15px;
+    font-size:14px;
+    color:#333;
+}
+
+.trip-info span{
+    display:block;
+    margin-bottom:6px;
+}
+
+.trip-card button{
+    margin-top:18px;
+    padding:10px 22px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* ================= BOOKS ================= */
+.books{
+    background:#eef2ff;
+}
+
+.book-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.book{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.1);
+}
+
+.book h4{
+    font-size:20px;
+    font-weight:800;
+}
+
+.book p{
+    font-size:14px;
+    color:#555;
+    margin-top:8px;
+}
+
+/* ================= CUSTOM TRIPS ================= */
+.custom-trip{
+    background:
+    linear-gradient(135deg,#003fad,#001c52);
+    color:white;
+    border-radius:20px;
+    padding:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+}
+
+.custom-trip h2{
+    font-size:40px;
+    font-weight:900;
+}
+
+.custom-trip p{
+    max-width:600px;
+    font-size:16px;
+    line-height:1.7;
+}
+
+.custom-trip button{
+    padding:14px 30px;
+    border:none;
+    border-radius:30px;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+    background:white;
+    color:black;
+}
+
+/* ================= VIEW ALL ================= */
+.view-all{
+    text-align:center;
+    margin-top:70px;
+}
+
+.view-all button{
+    padding:14px 36px;
+    border-radius:30px;
+    border:2px solid #000;
+    background:transparent;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    background:#111;
+    color:#bbb;
+    padding:50px;
+    text-align:center;
+}
+
+footer h3{
+    color:white;
+    margin-bottom:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+    .hero h1{font-size:38px;}
+    .section h2{font-size:30px;}
+    .custom-trip{
+        flex-direction:column;
+        text-align:center;
+        padding:40px 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Explore Trips & Travel Guides</h1>
+        <p>Expert-led journeys, destination guides, books and fully custom travel experiences</p>
+    </div>
+</section>
+
+<!-- TRIPS -->
+<section class="section">
+<h2>Popular Trips</h2>
+<p class="desc">
+Our most loved journeys designed by global travel experts. Less rush, more discovery.
+</p>
+
+<div class="trip-list">
+
+<div class="trip-card">
+<small>10 DAYS / 9 NIGHTS</small>
+<h3>Azores Uncovered</h3>
+<p>Explore volcanic landscapes, ocean cliffs and hidden lakes in Portugal’s Azores islands.</p>
+<div class="trip-info">
+<span>📍 Portugal</span>
+<span>💰 From $2880</span>
+</div>
+<button onclick="openMegaPage('../html/story1.html')">View Trip</button>
+</div>
+
+<div class="trip-card">
+<small>12 DAYS / 11 NIGHTS</small>
+<h3>Finland Arctic Expedition</h3>
+<p>Experience the Northern Lights, reindeer safaris and Arctic wilderness.</p>
+<div class="trip-info">
+<span>📍 Finland</span>
+<span>💰 From $5900</span>
+</div>
+<button>View Trip</button>
+</div>
+
+<div class="trip-card">
+<small>14 DAYS / 13 NIGHTS</small>
+<h3>Peru Uncovered</h3>
+<p>Discover Machu Picchu, the Sacred Valley and vibrant local cultures.</p>
+<div class="trip-info">
+<span>📍 Peru</span>
+<span>💰 From $4895</span>
+</div>
+<button>View Trip</button>
+</div>
+
+</div>
+</section>
+
+<!-- BOOKS -->
+<section class="section books">
+<h2>Travel Books & Guides</h2>
+<p class="desc">
+In-depth destination guides, expert insights and inspiration for your next journey.
+</p>
+
+<div class="book-grid">
+<div class="book">
+<h4>Japan Complete Guide</h4>
+<p>Culture, food, transport and must-see destinations.</p>
+</div>
+
+<div class="book">
+<h4>Europe Rail Adventures</h4>
+<p>Travel Europe by train with expert itineraries.</p>
+</div>
+
+<div class="book">
+<h4>Ultimate Beach Escapes</h4>
+<p>From Maldives to Caribbean hidden gems.</p>
+</div>
+</div>
+</section>
+
+<!-- CUSTOM TRIPS -->
+<section class="section">
+<div class="custom-trip">
+<div>
+<h2>Custom Trips</h2>
+<p>
+Want something unique? Our experts design trips fully around your interests,
+schedule and travel style.
+</p>
+</div>
+<button>Create My Trip</button>
+</div>
+</section>
+
+<!-- VIEW ALL -->
+<section class="section view-all">
+<button>View All Trips</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<h3>Travel With Confidence</h3>
+<p>Explore • Plan • Experience</p>
+</footer>
+
+</body>
+</html>

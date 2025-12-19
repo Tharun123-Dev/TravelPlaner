@@ -1,0 +1,81 @@
+/* ================================
+   FULL PAGE SEARCH DROPDOWN
+================================ */
+
+.search-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+/* FULL SCREEN PANEL */
+.search-dropdown {
+    position: fixed;
+    top: 90px;                 /* below navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 90px);
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #f4f6fb
+    );
+
+    padding: 30px 60px;
+    display: none;
+    z-index: 9999;
+
+    overflow-y: auto;
+}
+
+/* LIST ITEMS */
+.search-dropdown div {
+    padding: 12px 0;
+    font-size: 16px;          /* 👈 smaller & clean */
+    font-weight: 600;
+    color: #111;
+    cursor: pointer;
+
+    border-bottom: 1px solid #e6e6e6;
+    transition: 0.25s ease;
+}
+
+/* HOVER EFFECT */
+.search-dropdown div:hover {
+    color: #003fad;
+    padding-left: 12px;
+}
+
+/* SECTION TITLE STYLE */
+.search-dropdown div::before {
+    content: "→ ";
+    color: #999;
+}
+
+/* ================================
+   MOBILE FIX (ONLY DROPDOWN)
+================================ */
+@media (max-width: 768px) {
+    .search-dropdown {
+        top: 75px;
+        padding: 20px;
+    }
+
+    .search-dropdown div {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-dropdown {
+        top: 70px;
+        padding: 15px;
+    }
+
+    .search-dropdown div {
+        font-size: 14px;
+    }
+    .search-wrapper {
+        margin-left: 0px;
+    }
+}

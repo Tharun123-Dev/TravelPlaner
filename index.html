@@ -1,1279 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Planner</title>
+<meta charset="UTF-8">
+<title>Login</title>
 
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/journey.css">
-    <link rel="stylesheet" href="css/slide.css">
-    <link rel="stylesheet" href="css/wheels.css">
-    <link rel="stylesheet" href="css/adv.css">
-    <link rel="stylesheet" href="css/twoportion.css">
-    <link rel="stylesheet" href="css/slide2.css">
-    <link rel="stylesheet" href="css/explore.css">
-    <link rel="stylesheet" href="css/slide3.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/navhover.css">
+<style>
+/* ---------- GLOBAL ---------- */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    <!-- BOOTSTRAP CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(120deg,
+        #00f5ff,
+        #6a5cff,
+        #ff6ec7,
+        #00f5ff
+    );
+    background-size: 400% 400%;
+    animation: waterFlow 12s ease infinite;
+}
 
-    <!-- BOOTSTRAP ICONS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+@keyframes waterFlow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
 
-    <!-- NAVBAR LOADER -->
-    <script src="js/navbar.js" defer></script>
-    <script src="js/journey.js" defer></script>
-    <script src="js/slide.js" defer></script>
-    <script src="js/wheel.js" defer></script>
-    <script src="js/adv.js" defer></script>
-    <script src="js/twoportion.js" defer></script>
-    <script src="js/slide2.js" defer></script>
-    <script src="js/explore.js" defer></script>
-    <script src="js/slide3.js" defer></script>
-    <script src="js/footer.js" defer></script>
-    <script src="js/hero.js" defer></script>
-    <script src="js/navhover.js" defer></script>
-    <script src="js/books.js" defer></script>
+/* ---------- GLASS CARD ---------- */
+.login-card{
+    width:380px;
+    padding:35px;
+    border-radius:20px;
+    backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.25);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.25),
+        inset 0 0 20px rgba(255,255,255,0.3);
+    animation: fadeUp 0.8s ease;
+}
 
-    <!-- FONT AWESOME ICONS (REQUIRED) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.login-card h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#fff;
+    letter-spacing:1px;
+}
+
+/* ---------- INPUTS ---------- */
+.input-field{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    font-size:15px;
+    background: rgba(255,255,255,0.85);
+}
+
+/* ---------- BUTTON ---------- */
+.btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:bold;
+    color:white;
+    cursor:pointer;
+    background: linear-gradient(135deg,#ff6ec7,#6a5cff);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition:0.3s ease;
+}
+
+.btn:hover{
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* ---------- SIGNUP LINK (NEW) ---------- */
+.signup-text{
+    margin-top:18px;
+    text-align:center;
+    color:#fff;
+    font-size:14px;
+}
+
+.signup-text span{
+    color:#ffe600;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.signup-text span:hover{
+    text-decoration:underline;
+}
+
+/* ---------- ERROR / INFO ---------- */
+.msg{
+    margin-top:15px;
+    text-align:center;
+    color:white;
+    font-size:14px;
+}
+
+/* ---------- MEDIA QUERIES ---------- */
+@media(max-width:480px){
+    .login-card{
+        width:90%;
+        padding:25px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-<!-- =================== NAVBAR =================== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-    <div class="container">
+<div class="login-card">
+    <h2>Login</h2>
 
-        <!-- LOGO -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
-            <img src="images/logo1.jpg" style="height:50px; margin-right:8px;">
-            <span class="fw-bold fs-5">Nani Travel</span>
-        </a>
+    <input type="text" id="username" class="input-field" placeholder="Username">
+    <input type="password" id="password" class="input-field" placeholder="Password">
 
-        <!-- Mobile Toggle Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <button type="button" class="btn" onclick="login()">LOGIN</button>
 
-        <!-- MENU ITEMS -->
-        <div class="collapse navbar-collapse" id="navbarContent">
+    <!-- ✅ NEW USER SIGNUP LINK -->
+    <div class="signup-text">
+        New user? <span onclick="goToSignup()">Sign up</span>
+    </div>
 
-            <ul class="navbar-nav mx-auto gap-4">
-
-                
-    <!-- hover1destination--------------------------------------- -->
-<li class="nav-item dropdown-mega">
-    <a class="nav-link fw-semibold" href="#" id="destDrop">DESTINATIONS</a>
-
-    <!-- MEGA MENU -->
-    <div class="mega-menu" id="megaMenu">
-
-        <!-- LEFT SIDE MENU -->
-        <div class="mega-left">
-            <button onclick="openMegaPage('./html/country.html')" class="active-left">TRENDING</button>
-            <button onclick="openMegaPage('./html/country.html')">COUNTRIES</button>
-            <button onclick="openMegaPage('./html/country.html')">REGIONS</button>
-            <button onclick="openMegaPage('./html/country.html')">CITIES</button>
-            <button onclick="openMegaPage('./html/country.html')">CONTINENTS</button>
-        </div>
-
-        <!-- CENTER GRID -->
-        <div class="mega-grid">
-
-            <div class="mega-card" onclick="openPage('./html/athens.html')">
-                <img src="images/dest1.avif">
-                <p>ATHENS</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/athens.html')">
-                <img src="images/dest2.avif">
-                <p>MALTA</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/dest3.avif">
-                <p>PUERTO RICO</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/dest4.avif">
-                <p>CANCUN</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/dest5.avif">
-                <p>MIAMI</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/dest6.avif">
-                <p>YELLOWSTONE</p>
-            </div>
-
-        </div>
-
-        <!-- RIGHT SIDE BOX -->
-<!-- RIGHT SIDE BOX -->
-<div class="mega-right">
-    <img src="images/dest7.avif" class="right-img">
-
-    <h3 class="right-title">Not sure where to start?</h3>
-
-    <p class="right-text">
-        Get inspired by destinations chosen in this year's Best in Travel list.
-    </p>
-
-    <button class="btn" onclick="openPage('./html/discover.html')">
-        START DISCOVERING---
-    </button>
+    <div id="msg" class="msg"></div>
 </div>
 
-
-    </div>
-</li>
-
-
- <!-- ----------------------bookshovered---------------------------------------- -->
-<li class="nav-item dropdown-mega">
-    <a class="nav-link fw-semibold" href="#" id="booksDrop">BOOKS</a>
-
-    <!-- BOOKS MEGA MENU -->
-    <div class="mega-menu mega-books">
-
-        <!-- LEFT SIDE (CATEGORIES) -->
-        <div class="mega-left books-left">
-            <button onclick="openPage('books-destination-guides.html')" class="active-left">
-                DESTINATION GUIDES
-            </button>
-            <button onclick="openPage('books-trending-guides.html')">
-                TRENDING GUIDES
-            </button>
-            <button onclick="openPage('books-gifts-new.html')">
-                GIFTS &amp; NEW RELEASES
-            </button>
-            <button onclick="openPage('books-guide-types.html')">
-                GUIDE TYPES
-            </button>
-        </div>
-
-        <!-- CENTER COLUMNS -->
-        <div class="books-columns">
-
-            <!-- EUROPE -->
-            <div class="books-col">
-                <h4>EUROPE</h4>
-                <a href="books-croatia.html">CROATIA</a>
-                <a href="books-europe.html">EUROPE</a>
-                <a href="books-greece.html">GREECE</a>
-                <a href="books-ireland.html">IRELAND</a>
-                <a href="books-italy.html">ITALY</a>
-                <a href="books-portugal.html">PORTUGAL</a>
-                <a href="books-spain.html">SPAIN</a>
-            </div>
-
-            <!-- THE AMERICAS -->
-            <div class="books-col">
-                <h4>THE AMERICAS</h4>
-                <a href="books-canada.html">CANADA</a>
-                <a href="books-central-america.html">CENTRAL AMERICA</a>
-                <a href="books-mexico.html">MEXICO</a>
-                <a href="books-north-america.html">NORTH AMERICA</a>
-                <a href="books-peru.html">PERU</a>
-                <a href="books-south-america.html">SOUTH AMERICA</a>
-                <a href="books-usa.html">UNITED STATES</a>
-            </div>
-
-            <!-- MORE -->
-            <div class="books-col">
-                <h4>MORE</h4>
-                <a href="books-africa.html">AFRICA</a>
-                <a href="books-asia.html">ASIA</a>
-                <a href="books-australia.html">AUSTRALIA</a>
-                <a href="books-india.html">INDIA</a>
-                <a href="books-japan.html">JAPAN</a>
-                <a href="books-thailand.html">THAILAND</a>
-                <a href="books-vietnam.html">VIETNAM</a>
-            </div>
-
-        </div>
-
-        <!-- RIGHT SIDE GIFT CARD -->
-        <div class="mega-right books-right">
-            <img src="images/booksnav.webp" alt="Gift Guide">
-
-            <h3>Lonely Planet's Gift Guide</h3>
-            <p>
-                Discover the most loved travel books and gifts that every explorer will appreciate.
-            </p>
-
-            <button class="gift-btn" onclick="openPage('gift-guide.html')">
-                EXPLORE GIFTS
-            </button>
-        </div>
-
-    </div>
-</li>
-
-
-<!-- -------------------------tripshovered------------------------------- -->
-<li class="nav-item dropdown-mega">
-    <a class="nav-link fw-semibold" href="#" id="destDrop">TRIPS</a>
-
-    <!-- MEGA MENU -->
-    <div class="mega-menu" id="megaMenu">
-
-        <!-- LEFT SIDE MENU -->
-        <div class="mega-left">
-            <button onclick="openMegaPage('./html/country.html')" class="active-left">BOOKABLE TRIPS</button>
-            <button onclick="openMegaPage('./html/country.html')">CUSTOM TRIPS</button>
-
-            <button onclick="openMegaPage('./html/country.html')">VIEW ALL TRIPS</button>
-        </div>
-
-        <!-- CENTER GRID -->
-        <div class="mega-grid">
-
-            <div class="mega-card" onclick="openPage('./html/athens.html')">
-                <img src="images/tripo1.webp">
-                <p>AZORE UNCOVERED</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/athens.html')">
-                <img src="images/trip2.webp">
-                <p>SAFARI SOUTH AFRICA STYLE</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/trip3.webp">
-                <p>JAPANS GREATEST HITS</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/trip4.webp">
-                <p>FINLANDS ARCITIC EXPECTION</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/trip5.webp">
-                <p>BEST OF SOUTHERN SPAIN</p>
-            </div>
-
-            <div class="mega-card" onclick="openPage('./html/authens.html')">
-                <img src="images/trip6.webp">
-                <p>WONDERS OF COLOMBIA</p>
-            </div>
-
-        </div>
-
-        <!-- RIGHT SIDE BOX -->
-<!-- RIGHT SIDE BOX -->
-<div class="mega-right">
-    <img src="images/trip7.webp" class="right-img">
-
-    <h3 class="right-title">OUR NEW BOOKABLE TRIPS</h3>
-
-    <p class="right-text">
-        These readt-to-book itineraies are crafted by our team of experts all over the world.Pick a destination ,and we all take care of the rest
-    </p>
-
-    <button class="btn" onclick="openPage('./html/discover.html')">
-        GET STARTED
-    </button>
-</div>
-
-
-    </div>
-</li>
-
-
-<!-- -------------------storieshovered----------------------------- -->
-
-<li class="nav-item dropdown-mega">
-    <a class="nav-link fw-semibold" href="#" id="destDrop">STORIES</a>
-
-    <!-- MEGA MENU -->
-    <div class="mega-menu" id="megaMenu">
-
-        <!-- LEFT SIDE MENU -->
-        <div class="mega-left">
-            <button onclick="openMegaPage('./html/country.html')" class="active-left">BEST IN TRAVEL</button>
-            <button onclick="openMegaPage('./html/country.html')">OFFSEASON TRAVEL</button>
-            <button onclick="openMegaPage('./html/country.html')">NEW SLETTER</button>
-            <button onclick="openMegaPage('./html/country.html')">BY TOPIC</button>
-
-        </div>
-
- <!-- -----CENTER GRID ----- -->
-
-        <div class="mega-grid">
-
-            <div class="mega-card" onclick="openPage('./html/athens.html')">
-                <img src="images/STORY.webp">
-             
-            </div>
-      
-
-        <!-- RIGHT SIDE BOX -->
-<!-- RIGHT SIDE BOX -->
-<div class="mega-right">
-   
-
-    <h3 class="right-title">BEST IN TRAVEL</h3>
-
-    <p class="right-text">
-           <h2 id="stories-title">BEST IN TRAVEL</h2>
-                <p id="stories-desc">Lorem ipsum text here...</p>
-    </p>
-
-    <button class="btn" onclick="openPage('./html/discover.html')">
-        EXPLORE STORIES
-    </button>
-</div>
-
-
-    </div>
-</li>
-
-
-
-
-
-
-<!-- <----------------------------searchbar-------------------- -->
-   <!-- Search Icon -->
- 
-
-<div class="search-wrapper">
-       <a href="#" class="text-dark fs-5 search-icon">
-        <i class="bi bi-search"></i>
-    </a>
-
- 
-
-    <!-- FULL-WIDTH SEARCH PANEL -->
-    <div class="search-panel">
-
-        <!-- Search Bar Row -->
-        <div class="search-top">
-            <input type="text" placeholder="Search..." class="search-input">
-            <i class="bi bi-search search-input-icon"></i>
-        </div>
-
-        <!-- Content Section -->
-        <div class="search-content">
-
-            <h4>Explore Best in Travel 2026</h4>
-                                                     
-            <ul class="place-list">
-                <li>
-                    <i class="bi bi-geo-alt"></i> 
-                    <a href="https://www.google.com/maps/place/Mongolia" target="_blank">Mongolia</a>
-                </li>
-
-                <li>
-                    <i class="bi bi-geo-alt"></i> 
-                    <a href="https://www.google.com/maps/place/Poland" target="_blank">Poland</a>
-                </li>
-
-                <li>
-                    <i class="bi bi-geo-alt"></i> 
-                    <a href="https://www.google.com/maps/place/India" target="_blank">India</a>
-                </li>
-            
-        </div>
-
-
-        <!-- Bottom Link -->
-        <div class="search-footer">
-            <a href="all.html">Search all of Nani Travel →</a>
-        </div>
-
-    </div>
-
-</div>
-
-             
-
-                <!-- CART -->
-             <!-- CART BUTTON -->
-<a href="./html/cart.html" class="cart-link">
-    <i class="bi bi-cart3"></i>
-    <span>CART</span>
-    
-</a>
-
-
-                <!-- SIGN IN -->
-                <a href="html/signup.html" class="btn btn-dark rounded-pill px-4 fw-semibold">SIGN IN</a>
-
-            </div>
-        </div>
-    </div>
-</nav>
-
-
-<!-- =================== HERO SECTION =================== -->
-
-
-
-<!-- ========== HERO SECTION ========== -->
-
-
-
-<!-- =================== HERO SECTION =================== -->
-<section class="hero-section">
-    <div class="container">
-
-        <!-- BLUE TITLE BLOCK -->
-        <div class="blue-box" data-aos="fade-up">
-            <h1 class="hero-title">WHERE YOUR<br>TRIP BEGINS</h1>
-        </div>
-
-        <!-- SEARCH BAR -->
-        <div class="search-box d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
-            <input type="text" class="form-control search-input" placeholder="WHAT ARE YOU LOOKING FOR?">
-            <button class="search-btn">
-                <i class="bi bi-search"></i>
-            </button>
-        </div>
-
-        <!-- SMALL TEXT -->
-        <p class="search-note" data-aos="fade-up" data-aos-delay="300">
-            You can search for your favorite destinations like "India" and "France"
-        </p>
-
-<!-- FIXED BESTSELLER STRIP + OPEN BUTTON -->
-
-<!-- BESTSELLER STRIP + OPEN BUTTON -->
-<div class="bestseller-strip" id="bestsellerBox">
-
-    <div class="marquee">
-        <span>BESTSELLER — BESTSELLER — BESTSELLER — BESTSELLER — </span>
-    </div>
-
-    <button class="open-panel-btn" onclick="openPanel()">
-        The Mediterranean → OPEN
-    </button>
-</div>
-
-
-<!-- ================= SLIDE PANEL ================= -->
-<div id="bookPanel" class="slide-panel">
-
-    <button class="close-panel-btn" onclick="closePanel()">×</button>
-
-    <div class="panel-content">
-        <img src="images/heromedi.webp" class="panel-img">
-
-        <div class="panel-text">
-            <h3>NEW</h3>
-            <h2>The Mediterranean (Hardcover)</h2>
-
-            <p>
-                Explore Mediterranean islands, road trips, ancient cities,
-                beaches and cultures with stunning photography.
-            </p>
-
-            <p class="price">$50.00</p>
-
-          <button class="details-btn" onclick="openDetails()">VIEW DETAILS</button>
-
-        </div>
-    </div>
-
-</div>
-
-
-      
-
-    
-
-
-</section>
-
-
-
- 
-
-<!-- journey page -->
-
-
-<div class="journey">
-  <h2 class="title">YOUR JOURNEY BEGINS HERE ______________________________________________________CHOOSE YOUR FIRST STEP</h2>
-<!-- Card 1 -->
-    <!-- Card 1 -->
-    <div class="card">
-        <img src="images/book1.jpg" onclick="openPage('./html/gift1.html')"  >
-        <h3>GET 25% OFF</h3>
-        <button onclick="openPage('./html/gift2.html')">Start Gifting</button>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-        <img src="images/book2.jpg"  onclick="openPage('./html/gift1.html')" alt="Stories">
-        <h3>STORIES</h3>
-        <button  onclick="openPage('./html/gift2.html')">Read Stories</button>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card" >
-        <img src="images/book4.jpg"  onclick="openPage('./html/gift1.html')" alt="Journeys">
-        <h3>JOURNEYS</h3>
-        <button onclick="openPage('./html/gift2.html')">Start Planning</button>
-    </div>
-</div> 
-
-
-
-
-
-<!-- booknow slide  --------------------------------------------------->
-
-
-<section class="dream-trip py-5">
-    <div class="slide">
-
-        <!-- TITLE + BUTTONS -->
-        <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="fw-bold">Book Your Dream Trip</h2>
-            <div class="arrow-buttons">
-                <button class="arrow-btn" onclick="scrollLeft()">←</button>
-                <button class="arrow-btn" onclick="scrollRight()">→</button>
-            </div>
-        </div>
-
-    <p class="text-muted mb-4">
-            Choose from our top travel experiences designed by global experts.
-    </p>
-
-        <!-- HORIZONTAL SCROLL AREA -->
-        <div class="trip-scroll" id="tripScroll">
-
-            <div class="row flex-nowrap g-4">
-
-                <!-- ==== CARD 1 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="./images/slide1.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>10 DAYS / 9 NIGHTS</small>
-                            <h5 class="fw-bold">Finland Arctic Expedition</h5>
-                            <p>FROM <b>$5900</b> per person</p>
-<button class="btn btn-primary w-100" onclick="openBookingPage('./html/booknow.html')">
-    Book Now →
-</button>
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==== CARD 2 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="./images/slide2.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>14 DAYS / 13 NIGHTS</small>
-                            <h5 class="fw-bold">Peru Uncovered</h5>
-                            <p>FROM <b>$4895</b> per person</p>
-                            <button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==== CARD 3 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="./images/slide3.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>9 DAYS / 8 NIGHTS</small>
-                            <h5 class="fw-bold">Portugal Azores Adventure</h5>
-                            <p>FROM <b>$2880</b> per person</p>
-                      <button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==== CARD 4 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="./images/slide4.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>11 DAYS / 10 NIGHTS</small>
-                            <h5 class="fw-bold">Spain & Andalusia Tour</h5>
-                            <p>FROM <b>$4200</b> per person</p>
-    <button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==== CARD 5 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="images/slide5.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>12 DAYS / 11 NIGHTS</small>
-                            <h5 class="fw-bold">Vietnam River Journey</h5>
-                            <p>FROM <b>$3100</b> per person</p>
-<button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==== CARD 6 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="images/slide6.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>8 DAYS / 7 NIGHTS</small>
-                            <h5 class="fw-bold">South Africa Wildlife Tour</h5>
-                            <p>FROM <b>$6500</b> per person</p>
-<button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-               
-                                <!-- ==== CARD 7 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="images/slide7.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>12 DAYS / 11 NIGHTS</small>
-                            <h5 class="fw-bold">Vietnam River Journey</h5>
-                            <p>FROM <b>$3100</b> per person</p>
-<button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-                                <!-- ==== CARD 8 ==== -->
-                <div class="col-10 col-md-4">
-                    <div class="trip-card card shadow-sm">
-                        <img src="images/slide8.avif" class="card-img-top">
-                        <div class="card-body">
-                            <small>12 DAYS / 11 NIGHTS</small>
-                            <h5 class="fw-bold">Vietnam River Journey</h5>
-                            <p>FROM <b>$3100</b> per person</p>
-<button class="btn btn-primary w-100" onclick="openBookingPage()">
-    Book Now →
-</button>
-
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-            </div>
-
-        </div>
-    </div>
-</section>
-
-
-<!-- wheels section------------------------------------------------------------ -->
-<section class="wheels-section py-5">
-  <div class="wheels">
-
-    <h2 class="fw-bold section-title">Get your wheels turning</h2>
-
-    <div class="row g-4 mt-3">
-
-      <!-- CARD 1 -->
-      <div class="col-md-6 col-12">
-        <div class="wheel-card" onclick="openPage('./html/roadtrips.html')">
-          <img src="./images/wheels1.jpg" class="wheel-img">
-
-          <div class="wheel-text">
-            <h6 class="subtitle">EXPLORE WITH STARLINK</h6>
-            <h2 class="main-title">ROAD TRIPS</h2>
-
-            <button class="read-btn" onclick="openPage('./html/roadtrips.html'); event.stopPropagation();">
-              READ MORE →
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="col-md-6 col-12">
-        <div class="wheel-card" onclick="openPage('./html/rvtravel.html')">
-          <img src="./images/wheels2.jpg" class="wheel-img">
-
-          <div class="wheel-text">
-            <h6 class="subtitle">EXPLORE WITH STARLINK</h6>
-            <h2 class="main-title">RV TRAVEL</h2>
-
-            <button class="read-btn" onclick="openPage('./html/rvtravel.html'); event.stopPropagation();">
-              READ MORE →
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- advertisement part----------------------------------------------------- -->
-
-<section class="advert-section py-5">
-  <div class="container">
-
-    <h2 class="fw-bold mb-4">Advertisement</h2>
-
-    <div class="row g-4">
-
-      <div class="col-md-12">
-        <div class="advert-card" onclick="openAdPage()">
-
-          <!-- Advertisement Image -->
-          <img src="./images/adv2.jpg" class="advert-img">
-
-          <!-- Text on Image -->
-          <div class="advert-text">
-            <h6 class="advert-sub">Sponsored Content</h6>
-            <h2 class="advert-title">Discover Your Next Adventure</h2>
-
-            <button class="advert-btn" onclick="openAdPage(); event.stopPropagation();">
-              Learn More →
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- two portion up and dow way ----------------------------------->
-
-<section class="trending-section container py-5">
-
-    <h1 class="trending-title">Trending now on Lonely Planet</h1>
-
-    <div class="row mt-4">
-
-        <!-- LEFT BIG TREND CARD -->
-        <div class="col-lg-8 col-md-12 mb-4">
-            <div class="trend-card large-card" onclick="openTrend('./html/best2026.html')">
-
-                <img src="images/twoportion1.webp" class="trend-img">
-
-                <div class="trend-text">
-                    <h6 class="trend-sub">LONELY PLANET'S</h6>
-                    <h2 class="trend-main-title">BEST IN TRAVEL 2026</h2>
-
-                    <button class="trend-btn" onclick="openTrend('./html/best2026.html'); event.stopPropagation();">
-                        SEE THE LIST →
-                    </button>
-                </div>
-
-            </div>
-
-            <p class="trend-extra-text text-center mt-4">
-                CHECK OUT OUR LIST OF WHERE TO TRAVEL IN 2026  
-                <img src="images/palm.avif" class="palm-icon">
-            </p>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="col-lg-4 col-md-12">
-
-            <!-- Top Fountain Heading -->
-            <div class="trend-heading-top text-center">
-                <img src="images/fountain.avif" class="fountain-icon">
-                <p class="trend-small-title">8 TRIPS THAT WILL MAKE<br>YOU APPRECIATE WINTER</p>
-            </div>
-
-            <!-- Right Image Card -->
-            <div class="trend-card small-card mt-3" onclick="openTrend('./html/winter.html')">
-
-                <img src="images/twoportion2.webp" class="trend-img">
-
-                <div class="trend-text">
-                    <h6 class="trend-sub">EXPLORE</h6>
-                    <h2 class="trend-main-title small">WHERE TO GO THIS WINTER</h2>
-
-                    <button class="trend-btn" onclick="openTrend('./html/winter.html'); event.stopPropagation();">
-                        VIEW THE LIST →
-                    </button>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 2nd sliding section------------------------------------------------------------------------- -->
-
-<section class="featured-section container py-5">
-
-    <!-- Header -->
-    <div class="featured-header d-flex justify-content-between align-items-center mb-4">
-        <h1 class="feature-title">Featured destinations</h1>
-
-        <div class="feature-controls d-flex align-items-center gap-3">
-            <a href="#" class="view-all">VIEW ALL</a>
-
-            <button class="arrow-btn" onclick="scrollLeftDest()">←</button>
-            <button class="arrow-btn" onclick="scrollRightDest()">→</button>
-        </div>
-    </div>
-
-    <!-- Scrollable Wrapper -->
-    <div class="dest-wrapper" id="destScroll">
-
-        <!-- CARD TEMPLATE (Copy 10 times) -->
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-1.avif">
-            <div class="card-overlay">
-                <p class="country">EUROPE</p>
-                <h3 class="place">IRELAND</h3>
-              <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-2.avif">
-            <div class="card-overlay">
-                <p class="country">EUROPE</p>
-                <h3 class="place">ICELAND</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-3.avif">
-            <div class="card-overlay">
-                <p class="country">USA</p>
-                <h3 class="place">SAN FRANCISCO</h3>
-              <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-4.avif">
-            <div class="card-overlay">
-                <p class="country">DENMARK</p>
-                <h3 class="place">COPENHAGEN</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-5.avif">
-            <div class="card-overlay">
-                <p class="country">JAPAN</p>
-                <h3 class="place">TOKYO</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-6.avif">
-            <div class="card-overlay">
-                <p class="country">FRANCE</p>
-                <h3 class="place">PARIS</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-7.avif">
-            <div class="card-overlay">
-                <p class="country">USA</p>
-                <h3 class="place">NEW YORK</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-8.avif">
-            <div class="card-overlay">
-                <p class="country">UK</p>
-                <h3 class="place">LONDON</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-9.avif">
-            <div class="card-overlay">
-                <p class="country">AUSTRALIA</p>
-                <h3 class="place">SYDNEY</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-            </div>
-        </div>
-
-        <div class="destination-card" onclick="openDestination('./html/ireland.html')">
-            <img src="images/slide2-10.avif">
-            <div class="card-overlay">
-                <p class="country">ASIA</p>
-                <h3 class="place">MALDIVES</h3>
-                <button class="discover" onclick="openDestination('./html/ireland.html')">DISCOVER →</button>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- explore only--------------------------------------------------- -->
-
-
-<section class="winter-section">
-
-    <div class="winter-container">
-
-        <!-- LEFT CONTENT -->
-        <div class="winter-text">
-            <p class="sub-title">OUR FAVORITE PLACES</p>
-
-            <h1 class="winter-title">WINTRY MONTRÉAL</h1>
-
-            <p class="winter-description">
-                At once bustling and tranquil, hushed and twinkling, Montréal is trending 
-                for its cozy winter atmosphere. Here, cold weather isn’t feared but embraced, 
-                with ample outdoor activities like ice skating and cross-country skiing.
-            </p>
-
-            <button class="explore-btn" onclick="openExplore('./html/montreal.html')">
-                EXPLORE →
-            </button>
-        </div>
-
-        <!-- RIGHT IMAGE -->
-        <div class="winter-image">
-            <img src="images/explore.webp" alt="Winter Montreal">
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- slide3--------------------------------------------- -->
-
-
-
-<!-- ===== LATEST STORIES SECTION ===== -->
-<section class="stories-section">
-
-  <!-- Header row -->
-  <div class="stories-header">
-    <h2>Latest stories</h2>
-
-    <div class="stories-controls">
-      <span class="stories-view-all">VIEW ALL</span>
-      <button class="stories-arrow" onclick="scrollStories('left')">&#8592;</button>
-      <button class="stories-arrow" onclick="scrollStories('right')">&#8594;</button>
-    </div>
-  </div>
-
-  <!-- Scrollable track -->
-  <div class="stories-track" id="storiesTrack">
-
-    <!-- CARD 1 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-1.avif" alt="Story 1">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">JAN 4, 2026 • 14 MIN READ</p>
-      <h3 class="story-title">A GUIDE TO ALL 20 ARRONDISSEMENTS IN PARIS</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 2 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-2.avif" alt="Story 2">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">DEC 8, 2025 • 6 MIN READ</p>
-      <h3 class="story-title">THE BEST WAYS TO TRAVEL AROUND BERLIN</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 3 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-3.avif" alt="Story 3">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">DEC 8, 2025 • 7 MIN READ</p>
-      <h3 class="story-title">10 OF THE BEST PLACES TO VISIT IN ALGERIA</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 4 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-4.avif" alt="Story 4">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">DEC 8, 2025 • 6 MIN READ</p>
-      <h3 class="story-title">BELIZE’S 6 TOP HIKES</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 5 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-5.avif" alt="Story 5">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">NOV 20, 2025 • 8 MIN READ</p>
-      <h3 class="story-title">WINTER WEEKEND IN MONTREAL</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 6 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-6.avif" alt="Story 6">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">NOV 2, 2025 • 9 MIN READ</p>
-      <h3 class="story-title">HIDDEN CAFES IN LISBON YOU MUST VISIT</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 7 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-7.avif" alt="Story 7">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">OCT 15, 2025 • 5 MIN READ</p>
-      <h3 class="story-title">TOP BEACHES IN THAILAND FOR 2026</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 8 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-8.avif" alt="Story 8">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">SEP 28, 2025 • 4 MIN READ</p>
-      <h3 class="story-title">A FOOD LOVER’S GUIDE TO TOKYO STREETS</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 9 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-9.avif" alt="Story 9">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">SEP 10, 2025 • 10 MIN READ</p>
-      <h3 class="story-title">EPIC ROAD TRIPS ACROSS NEW ZEALAND</h3>
-      <div class="story-line"></div>
-    </article>
-
-    <!-- CARD 10 -->
-    <article class="story-card">
-      <div class="story-image-wrapper">
-        <img src="images/slide3-10.avif" alt="Story 10">
-        <button class="story-cta" onclick="openStory('./html/story1.html'); event.stopPropagation();">
-          READ STORY →
-        </button>
-      </div>
-      <p class="story-meta">AUG 30, 2025 • 6 MIN READ</p>
-      <h3 class="story-title">HOW TO PLAN YOUR FIRST SOLO TRIP</h3>
-      <div class="story-line"></div>
-    </article>
-
-  </div>
-</section>
-
-<script src="stories.js"></script>
-</body>
-</html>
-
-
-
-<!-- footersection-------------------------------------------- -->
-
-<!-- ===================== NEWSLETTER BLUE BOX ===================== -->
-    <section class="newsletter-box">
-        <h2>SUBSCRIBE TO THE LONELY PLANET NEWSLETTER</h2>
-
-        <p id="news-success" class="success-msg"></p>
-
-        <div class="input-row">
-            <input type="email" id="newsEmail" placeholder="ENTER YOUR EMAIL">
-            <button onclick="subscribeNewsletter()">SUBSCRIBE NOW</button>
-        </div>
-
-        <p class="privacy-small">
-            Subscribe to our newsletters and promotions. Read our 
-            <a href="#">Privacy Policy</a>.
-        </p>
-    </section>
-
-<footer>
-    <div class="footer-container">
-
-        <div class="footer-left">
-
-            <h3>Follow us</h3>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/tharun9949/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/Tharun123-Dev"><i class="fa-brands fa-github"></i></a>   
-                <a href=""><i class="fa-brands fa-facebook"></i></a>
-                <a href=""><i class="fa-brands fa-instagram"></i></a>
-                <a href=""><i class="fa-brands fa-twitter"></i></a>
-                <a href=""><i class="fa-brands fa-youtube"></i></a>
-                <a href=""><i class="fa-brands fa-pinterest"></i></a>
- 
-            </div>
-
-            <hr class="footer-line">
-
-            <!-- Newsletter -->
-            <h3>Join our Newsletter</h3>
-
-            <p id="footer-success" class="success-msg"></p>
-
-            <input type="email" id="footerEmail" placeholder="EMAIL ADDRESS">
-            <button class="signup-btn" onclick="footerSignup()">SIGN UP</button>
-
-            <p class="privacy-notice">
-                Subscribe to Lonely Planet newsletters and promotions.  
-                Read our <a href="#">Privacy Policy</a>.
-            </p>
-
-        </div>
-
-        <!-- Large Middle Columns -->
-        <div class="footer-columns">
-            <div class="column">
-                <p class="column-title">TOP DESTINATIONS</p>
-                <a>New York City</a>
-                <a>Paris</a>
-                <a>Italy</a>
-                <a>Costa Rica</a>
-                <a>Japan</a>
-                <a>Spain</a>
-                <a>Mexico</a>
-                <a>San Francisco</a>
-                <a>Explore More Destinations</a>
-            </div>
-
-            <div class="column">
-                <p class="column-title">TRAVEL INTERESTS</p>
-                <a>Family Holidays</a>
-                <a>Festivals</a>
-                <a>Food and Drink</a>
-                <a>Honeymoon & Romance</a>
-                <a>Road Trips</a>
-                <a>Sustainable Travel</a>
-                <a>Wildlife & Nature</a>
-            </div>
-
-            <div class="column">
-                <p class="column-title">ABOUT US</p>
-                <a>About Lonely Planet</a>
-                <a>Contact Us</a>
-                <a>Trade & Advertising</a>
-                <a>Privacy Policy</a>
-                <a>Terms & Conditions</a>
-                <a>Work For Us</a>
-                <a>Write For Us</a>
-                <a>Cookie Settings</a>
-            </div>
-        </div>
-
-        <!-- Language dropdown -->
-        <div class="language-box">
-            <button class="lang-btn" onclick="toggleLang()">LANGUAGE : ENGLISH ▼</button>
-
-            <ul id="langMenu" class="lang-menu">
-                <li onclick="changeLang('English')">English</li>
-                <li onclick="changeLang('French')">French</li>
-                <li onclick="changeLang('German')">German</li>
-                <li onclick="changeLang('Hindi')">Hindi</li>
-                <li onclick="changeLang('Spanish')">Spanish</li>
-                <li onclick="changeLang('Japanese')">Japanese</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <p class="copyright">
-        © 2026 Nani Travel Planner. All rights reserved.
-    </p>
-</footer>
-
-
-
-
-
-
-
-
-
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function login(){
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const msg = document.getElementById("msg");
+
+    msg.innerText = "";
+
+    if(!username || !password){
+        msg.innerText = "All fields required";
+        return;
+    }
+
+    fetch("https://loginstore-1.onrender.com/api/login/", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if(data.error){
+            msg.innerText = data.error;
+            return;
+        }
+        window.location.href = "./index1.html";
+    })
+    .catch(err => {
+        console.error("FETCH ERROR:", err);
+        msg.innerText = "Backend not responding";
+    });
+}
+
+/* ---------- SIGNUP REDIRECT ---------- */
+function goToSignup(){
+    window.location.href = "./signup.html";
+}
+</script>
 
 </body>
 </html>

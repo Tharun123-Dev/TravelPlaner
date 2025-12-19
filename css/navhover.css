@@ -4,11 +4,11 @@
     left: 0;
     width: 100%;
     padding: 30px;
-    background: #fff;
+    background: linear-gradient(180deg, #ffffff, #f5f8ff);
     display: none;
     grid-template-columns: 180px 1fr 300px;
     gap: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 40, 120, 0.15);
     z-index: 999;
     margin: auto !important;
 }
@@ -28,14 +28,18 @@
     cursor: pointer;
     color: #444;
     transition: .2s;
+
+    text-shadow: 1px 1px 0px #eef2ff;
 }
 
 .mega-left button:hover,
 .mega-left .active-left {
     font-weight: 700;
-    color: black;
-    border-left: 4px solid black;
+    color: #111;
+    border-left: 4px solid #003fad;
     padding-left: 12px;
+
+    background: linear-gradient(90deg, #eef2ff, transparent);
 }
 
 /* GRID */
@@ -60,12 +64,14 @@
 .mega-card p {
     font-weight: 600;
     margin-top: 10px;
+    color: #111;
+
+    text-shadow: 1px 1px 0px #e0e7ff;
 }
 
 /* RIGHT BOX */
-/* RIGHT SIDE BOX FIX */
 .mega-right {
-    background: #f4f4f4;
+    background: linear-gradient(180deg, #f7f9ff, #eef2ff);
     padding: 25px;
     border-radius: 12px;
     display: flex;
@@ -76,6 +82,7 @@
     height: 100%;
     min-height: 380px;
 
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.6);
 }
 
 /* Image */
@@ -92,6 +99,9 @@
     font-size: 20px;
     font-weight: 800;
     margin-bottom: 10px;
+    color: #111;
+
+    text-shadow: 1px 1px 0px #c7d2fe;
 }
 
 .right-text {
@@ -104,21 +114,22 @@
 .btn {
     width: 100%;
     padding: 14px 0;
-    background: #000;
+    background: linear-gradient(135deg, #000000, #003fad);
     color: #12cf1b;
     border-radius: 30px;
     font-weight: 700;
     border: none;
     font-size: 15px;
     cursor: pointer;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.4);
 }
 
 .btn:hover {
-    background: #0f17ef;
+    background: linear-gradient(135deg, #003fad, #0f17ef);
 }
 
-
-/* MOBILE FIX */
+/* MOBILE FIX — UNTOUCHED */
 @media (max-width: 768px) {
     .mega-menu {
         grid-template-columns: 1fr;
@@ -132,10 +143,7 @@
 }
 
 
-/* books------------------------------------ */
-
 /* ===================== BOOKS MEGA MENU ===================== */
-/* use same .mega-menu base – we only style inside */
 
 .mega-books .mega-left button {
     font-size: 16px;
@@ -152,6 +160,9 @@
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 14px;
+    color: #111;
+
+    text-shadow: 1px 1px 0px #e0e7ff;
 }
 
 .books-col a {
@@ -167,11 +178,13 @@
     color: #0071b3;
 }
 
-/* RIGHT GIFT CARD (reuses .mega-right box) */
+/* RIGHT GIFT CARD */
 .books-right h3 {
     font-size: 20px;
     font-weight: 800;
     margin: 10px 0;
+
+    text-shadow: 1px 1px 0px #c7d2fe;
 }
 
 .books-right p {
@@ -179,6 +192,7 @@
     color: #444;
     margin-bottom: 18px;
 }
+
 .books-right img{
     width: 100%;
     height: 180px;
@@ -190,20 +204,22 @@
 .gift-btn {
     width: 100%;
     padding: 14px;
-    background: #000;
+    background: linear-gradient(135deg, #000000, #333333);
     color: #fff;
     border-radius: 30px;
     border: none;
     font-weight: 700;
     font-size: 15px;
     cursor: pointer;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 .gift-btn:hover {
-    background: #333;
+    background: linear-gradient(135deg, #333333, #555555);
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE — UNTOUCHED */
 @media (max-width: 768px) {
     .mega-books .books-columns {
         grid-template-columns: repeat(2, 1fr);
@@ -217,43 +233,41 @@
 }
 
 
-/* -------------------------search------------- */
+/* ===================== SEARCH PANEL ===================== */
 
 
-/* POSITION DROPDOWN */
-.search-wrapper {
-    position: relative;
-}
 
-/* FULL WIDTH PANEL LIKE SCREENSHOT */
 .search-panel {
-    position: fixed;           /* 👈 FIXED = full page alignment */
-    top: 85px;                 /* 👈 Match your navbar height */
-    left: 0;                   /* 👈 Start from very left of website */
-    width: 100%;               /* 👈 Full page width */
-    background: #ffffff;
+    position: fixed;
+    top: 85px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(180deg, #ffffff, #f4f7ff);
 
     border-top: 1px solid #ddd;
     padding: 25px 35px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.18);
 
     opacity: 0;
     visibility: hidden;
     transition: 0.25s ease;
 
-    z-index: 999;              /* 👈 shows above all content */
+    z-index: 999;
 }
+
 .search-wrapper{
     margin-left: 200px;
-    margin-top: 8px;
+    margin-top: 7px;
 }
+
 .text-dark{
     margin-top: 10px;
 }
+
 .btn-dark{
     margin-top: 6px;
- 
 }
+
 /* SHOW ON HOVER */
 .search-wrapper:hover .search-panel {
     opacity: 1;
@@ -261,12 +275,6 @@
 }
 
 /* TOP SEARCH BAR */
-.search-top {
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
 .search-input {
     width: 100%;
     padding: 14px 45px 14px 15px;
@@ -289,26 +297,11 @@
     font-size: 1.1rem;
     margin-bottom: 15px;
     color: #111;
+
+    text-shadow: 1px 1px 0px #e0e7ff;
 }
 
 /* PLACES LIST */
-.place-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.place-list li {
-    font-size: 1rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.place-list li i {
-    color: #0059d6;
-}
-
 .place-list li a {
     text-decoration: none;
     color: #003366;
@@ -335,4 +328,11 @@
 
 .search-footer a:hover {
     text-decoration: underline;
+}
+@media screen and (max-width: 768px) {
+    .search-wrapper{
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+    
 }

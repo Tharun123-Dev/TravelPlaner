@@ -2,7 +2,11 @@
    ADVERTISEMENT SECTION
 ================================ */
 .advert-section {
-  background: #fafafa;
+  background: linear-gradient(
+    180deg,
+    #fafafa,
+    #f1f4ff
+  );
 }
 
 /* Card container */
@@ -12,6 +16,10 @@
   overflow: hidden;
   cursor: pointer;
   transition: 0.3s;
+
+  /* subtle depth */
+  box-shadow:
+    0 14px 32px rgba(0,0,0,0.25);
 }
 
 /* Ad image */
@@ -34,18 +42,30 @@
   bottom: 30px;
   left: 30px;
   color: white;
+
+  /* improve contrast on image */
+  text-shadow:
+    1px 1px 0px rgba(0,0,0,0.6),
+    0 0 12px rgba(0,0,0,0.4);
 }
 
 .advert-sub {
   font-size: 14px;
   letter-spacing: 1px;
   font-weight: 500;
+
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.6);
 }
 
 .advert-title {
   font-size: 32px;
   font-weight: 900;
   margin-top: 6px;
+
+  /* bold title depth */
+  text-shadow:
+    2px 2px 0px rgba(0,0,0,0.6),
+    0 0 18px rgba(0,0,0,0.5);
 }
 
 /* Button */
@@ -54,20 +74,30 @@
   padding: 8px 18px;
   border: 2px solid white;
   border-radius: 25px;
-  background: transparent;
+  background: linear-gradient(
+    135deg,
+    aquamarine,
+    #7fffd4
+  );
   color: rgb(99, 36, 234);
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
-  background-color: aquamarine;
+
+  box-shadow:
+    0 6px 16px rgba(0,0,0,0.35);
 }
 
 .advert-btn:hover {
-  background: white;
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #eef2ff
+  );
   color: black;
 }
 
-/* Mobile responsive */
+/* Mobile responsive — UNTOUCHED */
 @media (max-width: 768px) {
   .advert-img {
     height: 250px;

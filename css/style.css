@@ -1,6 +1,13 @@
 /* =======================================
    GLOBAL RESET
 ======================================= */
+/* 🔒 GLOBAL FIX FOR HORIZONTAL SCROLL */
+html, body {
+    width: 100% !important;
+    overflow-x: hidden !important;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +15,7 @@
 }
 
 body {
-    /* font-family: "Poppins", sans-serif; */
-    background: #fff;
+    background: linear-gradient(180deg, #ffffff, #f6f6f6);
     width: 100% !important;
 }
 
@@ -21,38 +27,65 @@ body {
     font-size: 50px;
     letter-spacing: 0.5px;
     transition: 0.2s ease-in-out;
-    margin-left: 10px;
+    margin-left: 5px;
+
+    text-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .nav-link:hover {
     color: #0071b3 !important;
     transform: translateY(-1px);
+    text-shadow: 0 4px 12px rgba(0,113,179,0.45);
 }
 
 /* CART + SEARCH ICON FIX */
 .navbar a {
     text-decoration: none;
 }
+
 .nav-item{
     margin:auto;
     margin-left: 10px;
-
 }
+
 .fw-bold{
     margin-right: 120px;
 }
+
+
+/* NAVBAR BACKGROUND + DEPTH */
+.navbar {
+   background: linear-gradient(135deg, rgba(203, 203, 203, 0.95), rgba(240,240,240,0.92));
+    print-color-adjust: exact;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    width: 100% !important;
+    position: fixed !important;
+    
+    
+    top: 0;
+    left: 0;
+    height: 70px !important;          /* important */
+    background: #fff;
+    z-index: 1000 !important;         /* keeps navbar above everything */
+}
+ 
+
+
+
 
 /* =======================================
    HERO SECTION (FULLSCREEN IMAGE)
 ======================================= */
 .hero-section {
-    height: 95vh;                               /* tall hero like Lonely Planet */
+    height: 95vh;
     background: url('../images/wallpaper.jpg') no-repeat center center;
-    background-size: cover;                     /* make image fit screen */
+    background-size: cover;
     display: flex;
     align-items: center;
-    padding-top: 120px;                         /* space for navbar */
+    padding-top: 120px;
     color: #fff;
+
+    box-shadow: inset 0 -160px 240px rgba(0,0,0,0.55);
 }
 
 
@@ -60,13 +93,16 @@ body {
    BLUE TITLE BOX
 ======================================= */
 .blue-box {
-    background: #0057D8;
+    background: linear-gradient(135deg, #0057D8, #003fad);
     display: inline-block;
     padding: 25px 35px;
     margin-bottom: -20px;
     margin-left: 210px;
-     border: 2px solid black;
+    border: 2px solid black;
 
+    box-shadow:
+        0 18px 36px rgba(0,0,0,0.35),
+        inset 0 0 18px rgba(255,255,255,0.25);
 }
 
 .hero-title {
@@ -74,21 +110,25 @@ body {
     font-size: 60px;
     font-weight: 900;
     line-height: 1.1;
-  
+
+    text-shadow: 0 6px 20px rgba(0,0,0,0.6);
 }
 
 
 /* =======================================
-   SEARCH BAR STYLE (LIKE LONELY PLANET)
+   SEARCH BAR STYLE
 ======================================= */
 .search-box {
     width: 60%;
-    background: white;
+    background: linear-gradient(180deg, #ffffff, #f1f1f1);
     border: 2px solid black;
     display: flex;
-    margin-top: 20px;
+    margin-top: 30px;
     max-width: 650px;
-    margin-left: 200px;
+    position:  relative!important;
+    /* margin-left: 200px; */
+
+    box-shadow: 0 14px 32px rgba(0,0,0,0.25);
 }
 
 .search-input {
@@ -104,14 +144,21 @@ body {
     padding: 10px 20px;
     font-size: 22px;
     cursor: pointer;
+
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
 }
 
 .search-note {
     font-size: 14px;
     color: #1e1e1e;
     margin-top: 20px;
-     margin-left: 200px;
+    margin-left: 200px;
 }
+
+
+/* =======================================
+   CART LINK
+======================================= */
 .cart-link {
     display: flex;
     align-items: center;
@@ -128,83 +175,16 @@ body {
 }
 
 #cart-count {
-    background: #0d6efd;
+    background: linear-gradient(135deg, #0d6efd, #004aad);
     color: white;
     font-size: 12px;
     padding: 2px 6px;
     border-radius: 10px;
     margin-left: 4px;
+
+    box-shadow: 0 4px 10px rgba(13,110,253,0.6);
 }
 
-
-
-/* ================================
-   Small Mobiles
-================================ */
-@media (max-width: 480px) {
-
-    /* NAVBAR HEIGHT */
-    .navbar {
-        padding-top: 20px !important;
-        padding-bottom: 20px !important;
-        min-height: 90px !important;
-     
-    }
-    .navbar-brand{
-       width:80%;
-    }
-    .navbar-toggler{
-        margin-left: 240px !important;
-        margin-top: -50px !important;
-    }
-
-    /* LOGO */
-    .navbar-brand img {
-        height: 40px !important;
-    }
-
-    .navbar-brand span {
-        font-size: 20px !important;
-    }
-
-    /* NAV LINKS */
-    .nav-link {
-        font-size: 18px !important;
-        padding: 8px 0 !important;
-    }
-
-    /* SIGN IN BUTTON */
-    .navbar .btn {
-        font-size: 14px !important;
-        padding: 8px 20px !important;
-    }
-
-    /* SEARCH BOX (CENTER) */
-    .search-box {
-        width: 90% !important;
-        margin: 10px auto !important;
-        margin-left: 0px !important;
-    }
-
-    /* BLUE BOX LEFT */
-    .blue-box {
-        text-align: left;
-        display: inline-block;
-        margin: 0 !important;
-        padding: 18px 20px;
-        
-    }
-
-    /* HERO TITLE */
-    .hero-title {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-    .search-note {
-        margin-left: 0px !important;
-        text-align: center;
-    }
-}
 
 /* ==================== BESTSELLER STRIP ==================== */
 .bestseller-strip {
@@ -212,11 +192,13 @@ body {
     right: 0;
     bottom: 40px;
     width: 360px;
-    background: #ffcc00;
+    background: linear-gradient(135deg, #ffcc00, #ffb700);
     border-radius: 12px 0 0 12px;
     overflow: hidden;
     border: 1px solid #000;
     z-index: 100;
+
+    box-shadow: 0 18px 38px rgba(0,0,0,0.4);
 }
 
 /* MARQUEE TEXT */
@@ -225,7 +207,7 @@ body {
     overflow: hidden;
     white-space: nowrap;
     padding: 8px 0;
-    background: #ffcc00;
+    background: transparent;
 }
 
 .marquee span {
@@ -240,11 +222,12 @@ body {
     100% { transform: translateX(-100%); }
 }
 
+
 /* ==================== OPEN BUTTON ==================== */
 .open-panel-btn {
     width: 100%;
     padding: 20px;
-    background: #003fad;
+    background: linear-gradient(135deg, #003fad, #002b78);
     border: none;
     color: white;
     font-size: 16px;
@@ -252,11 +235,14 @@ body {
     border-radius: 0 0 0 12px;
     cursor: pointer;
     text-align: left;
+
+    box-shadow: inset 0 0 12px rgba(255,255,255,0.2);
 }
 
 .open-panel-btn:hover {
-    background: #002b78;
+    background: linear-gradient(135deg, #002b78, #001c52);
 }
+
 
 /* ==================== SLIDE PANEL ==================== */
 .slide-panel {
@@ -265,16 +251,19 @@ body {
     top: 0;
     height: 100vh;
     width: 55%;
-    background: #003fad;
+    background: linear-gradient(180deg, #003fad, #002b78);
     color: white;
     padding: 40px;
     transition: 0.5s ease;
     z-index: 999999;
+
+    box-shadow: -28px 0 55px rgba(0,0,0,0.55);
 }
 
 .slide-panel.active {
     right: 0;
 }
+
 
 /* ==================== CLOSE BUTTON ==================== */
 .close-panel-btn {
@@ -286,6 +275,7 @@ body {
     cursor: pointer;
 }
 
+
 /* ==================== PANEL CONTENT ==================== */
 .panel-content {
     display: flex;
@@ -296,6 +286,8 @@ body {
 .panel-img {
     width: 45%;
     border-radius: 12px;
+
+    box-shadow: 0 16px 38px rgba(0,0,0,0.45);
 }
 
 .panel-text h2 {
@@ -309,110 +301,102 @@ body {
 }
 
 .details-btn {
-    background: white;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
     color: black;
     border: none;
     padding: 12px 20px;
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
+
+    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
 }
 
 .price {
     margin: 15px 0;
     font-size: 20px;
 }
-/* ===================== TABLETS (up to 768px) ===================== */
-@media (max-width: 768px) {
 
-    .bestseller-strip {
-        width: 260px;
-        bottom: 20px;
+
+/* ===================== MEDIA QUERIES =====================
+   🚫 NOT TOUCHED — EXACT COPY
+========================================================== */
+
+@media (max-width: 480px) {
+    .navbar {
+        padding-top: 20px !important;
+        padding-bottom: 20px !important;
+        min-height: 90px !important;
     }
-
-    .slide-panel {
-        width: 80%;
+    .navbar-brand{ width:80%; }
+    .navbar-toggler{
+        margin-left: 240px !important;
+        margin-top: -50px !important;
     }
-
-    .panel-img {
-        width: 60%;
-        margin: auto;
+    .navbar-brand img { height: 40px !important; }
+    .navbar-brand span { font-size: 20px !important; }
+    .nav-link { font-size: 18px !important; padding: 8px 0 !important; }
+    .navbar .btn { font-size: 14px !important; padding: 8px 20px !important; }
+    .search-box {
+        width: 90% !important;
+        margin: 10px auto !important;
+        margin-left: 0px !important;
     }
-
-    .panel-content {
-        flex-direction: column;
+    .blue-box {
+        text-align: left;
+        display: inline-block;
+        margin: 0 !important;
+        padding: 18px 20px;
+    }
+    .hero-title {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    .search-note {
+        margin-left: 0px !important;
         text-align: center;
-    }
-
-    .panel-text h2 {
-        font-size: 26px;
     }
 }
 
+/* TABLETS */
+@media (max-width: 768px) {
+    .bestseller-strip { width: 260px; bottom: 20px; }
+    .slide-panel { width: 80%; }
+    .panel-img { width: 60%; margin: auto; }
+    .panel-content { flex-direction: column; text-align: center; }
+    .panel-text h2 { font-size: 26px; }
+}
 
-/* ===================== MOBILE (up to 480px) ===================== */
+/* MOBILE */
 @media (max-width: 480px) {
-
-    /* Bestseller strip in correct place */
     .bestseller-strip {
         width: 200px;
         bottom: -30px;
-        right:100px ;
+        right:100px;
         border-radius: 10px 0 0 10px;
     }
-
-    /* Marquee text smaller */
-    .marquee span {
-        font-size: 12px;
-    }
-
-    /* Open button small */
+    .marquee span { font-size: 12px; }
     .open-panel-btn {
         padding: 12px;
         font-size: 13px;
         text-align: center;
     }
-
-    /* Slide panel takes full width */
     .slide-panel {
         width: 100%;
         padding: 25px;
     }
-
-    /* Column layout in panel */
     .panel-content {
         flex-direction: column;
         align-items: center;
         gap: 20px;
         text-align: center;
     }
-
-    /* Full width image */
-    .panel-img {
-        width: 90%;
-    }
-
-    /* Text smaller */
-    .panel-text h2 {
-        font-size: 22px;
-    }
-
-    .panel-text h3 {
-        font-size: 16px;
-    }
-
-    .price {
-        font-size: 18px;
-    }
-
+    .panel-img { width: 90%; }
+    .panel-text h2 { font-size: 22px; }
+    .panel-text h3 { font-size: 16px; }
+    .price { font-size: 18px; }
     .details-btn {
         padding: 10px 18px;
         font-size: 14px;
     }
-
-
-
-   
-
 }
-

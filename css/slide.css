@@ -1,16 +1,25 @@
 .dream-trip {
-    background: #efefef;
+    background: linear-gradient(
+        180deg,
+        #f4f6fb,
+        #eceff6
+    );
     width: 100%;
 }
 
+/* IMAGE */
 .trip-card img {
     height: 350px;
     object-fit: cover;
+
+    /* visual depth */
+    border-radius: 10px;
 }
 
+/* SCROLL */
 .trip-scroll {
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
 }
 
 .trip-scroll::-webkit-scrollbar {
@@ -18,7 +27,11 @@
 }
 
 .trip-scroll::-webkit-scrollbar-thumb {
-    background: #ccc;
+    background: linear-gradient(
+        135deg,
+        #c7d2fe,
+        #a5b4fc
+    );
     border-radius: 10px;
 }
 
@@ -33,17 +46,32 @@
     height: 40px;
     font-size: 20px;
     border: none;
-    background: black;
+    background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #312e81
+    );
     color: white;
     border-radius: 6px;
     cursor: pointer;
+
+    /* premium depth */
+    box-shadow:
+        0 6px 14px rgba(0,0,0,0.35);
+
+    transition: 0.2s ease;
 }
 
 .arrow-btn:hover {
-    background: #333;
+    background: linear-gradient(
+        135deg,
+        #312e81,
+        #1e40af
+    );
 }
+
+/* SLIDE WRAPPER */
 .slide{
     width: 85%;
     margin: auto;
-    
 }

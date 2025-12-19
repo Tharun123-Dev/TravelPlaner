@@ -4,6 +4,18 @@
 
 .trending-section {
     margin-top: 40px;
+    background: linear-gradient(
+        180deg,
+        #faf9f7,
+        #f1ece6
+    );
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 18px;
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.08),
+        inset 0 0 40px rgba(255,255,255,0.7);
 }
 
 /* Big Title */
@@ -11,61 +23,113 @@
     font-size: 42px;
     font-weight: 900;
     margin-bottom: 30px;
+    color: #111;
+
+    text-shadow:
+        0 4px 12px rgba(0,0,0,0.12);
 }
 
-/* CARD CONTAINER */
+/* ===============================
+   CARD CONTAINER
+==================================*/
 .trend-card {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
+
+    background: #000;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.25),
+        0 8px 18px rgba(0,0,0,0.18);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 }
 
-/* IMAGE STYLING */
+/* hover lift */
+.trend-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 35px 70px rgba(0,0,0,0.35),
+        0 18px 35px rgba(0,0,0,0.28);
+}
+
+/* ===============================
+   IMAGE STYLING
+==================================*/
 .trend-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: 0.3s ease-in-out;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
 }
 
-/* HOVER EFFECT */
+/* cinematic hover */
 .trend-card:hover .trend-img {
-    transform: scale(1.05);
-    filter: brightness(80%);
+    transform: scale(1.1);
+    filter: brightness(80%) contrast(108%);
 }
 
-/* ============================================
-   FIXED HEIGHTS → EXACT MATCH WITH SCREENSHOT
-===============================================*/
+/* ===============================
+   GRADIENT OVERLAY
+==================================*/
+.trend-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.05)
+    );
+    z-index: 1;
+}
 
-/* Left Card (BIG ELEPHANT IMAGE) */
+/* ====================================
+   FIXED HEIGHTS (UNCHANGED)
+====================================*/
+
+/* Left Card */
 .large-card {
     height: 520px;
 }
 
-/* Right Card (WINTER IMAGE) */
+/* Right Card */
 .small-card {
-    height: 520px;              /* SAME HEIGHT as left card */
+    height: 520px;
 }
 
 /* ====================================
-   TEXT OVER IMAGE (WHITE TEXT)
+   TEXT OVER IMAGE
 ====================================*/
-
 .trend-text {
     position: absolute;
     bottom: 30px;
     left: 30px;
     z-index: 2;
     color: white;
+
+    transition: transform 0.3s ease;
+}
+
+.trend-card:hover .trend-text {
+    transform: translateY(-5px);
 }
 
 .trend-sub {
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 10px rgba(0,0,0,0.6);
 }
 
 .trend-main-title {
@@ -73,37 +137,67 @@
     font-weight: 900;
     line-height: 1.1;
     margin-top: 5px;
+
+    text-shadow:
+        0 6px 20px rgba(0,0,0,0.75),
+        0 0 30px rgba(255,255,255,0.15);
 }
 
 .trend-main-title.small {
     font-size: 36px;
 }
 
-/* BUTTON */
+/* ===============================
+   BUTTON
+==================================*/
 .trend-btn {
     margin-top: 15px;
     padding: 10px 25px;
-    background: white;
-    color: black;
     border-radius: 25px;
     border: none;
     font-weight: bold;
-    transition: 0.3s;
+    cursor: pointer;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #f0f0f0
+    );
+    color: #000;
+
+    box-shadow:
+        0 10px 22px rgba(0,0,0,0.35),
+        inset 0 0 8px rgba(255,255,255,0.6);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .trend-btn:hover {
-    background: black;
-    color: white;
+    background: linear-gradient(
+        135deg,
+        #111,
+        #333
+    );
+    color: #fff;
+
+    transform: translateY(-3px);
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.45);
 }
 
 /* ====================================
    RIGHT TOP SMALL HEADING
 ====================================*/
-
 .fountain-icon {
     width: 70px;
     margin: 0 auto;
     display: block;
+
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.35));
 }
 
 .trend-small-title {
@@ -112,6 +206,7 @@
     text-align: center;
     letter-spacing: 1px;
     margin-top: 10px;
+    color: #222;
 }
 
 /* ====================================
@@ -122,15 +217,17 @@
     font-size: 14px;
     letter-spacing: 1px;
     font-weight: 500;
+    color: #333;
 }
 
 .palm-icon {
     width: 40px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
 }
 
-
 /* ==================================================
-   RESPONSIVE — EXACT LIKE LONELY PLANET
+   MEDIA QUERIES
+   ❌ NOT TOUCHED (AS PROMISED)
 ==================================================*/
 
 /* Tablets & Medium screens */
@@ -158,7 +255,7 @@
 
     .large-card,
     .small-card {
-        height: 320px;   /* equal heights on mobile */
+        height: 320px;
     }
 
     .trend-main-title {

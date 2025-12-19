@@ -1,6 +1,10 @@
 /* Entire section background */
 .winter-section {
-    background: #d9d6d1;   /* same light grey as LonelyPlanet */
+    background: linear-gradient(
+        180deg,
+        #d9d6d1,
+        #ece9e4
+    );
     padding: 80px 0;
 }
 
@@ -18,12 +22,21 @@
 .sub-title {
     letter-spacing: 2px;
     font-size: 14px;
+    color: #444;
+
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.6);
 }
 
 .winter-title {
     font-size: 55px;
     font-weight: 900;
     margin: 15px 0;
+    color: #111;
+
+    /* elegant title depth */
+    text-shadow:
+        2px 2px 0px rgba(255,255,255,0.7),
+        4px 4px 0px rgba(0,0,0,0.15);
 }
 
 .winter-description {
@@ -31,11 +44,18 @@
     line-height: 1.7;
     margin-bottom: 30px;
     max-width: 500px;
+    color: #333;
+
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.6);
 }
 
 /* EXPLORE BUTTON */
 .explore-btn {
-    background: #000;
+    background: linear-gradient(
+        135deg,
+        #000000,
+        #333333
+    );
     color: #fff;
     padding: 12px 28px;
     border: none;
@@ -43,10 +63,17 @@
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s ease;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35);
 }
 
 .explore-btn:hover {
-    background: #333;
+    background: linear-gradient(
+        135deg,
+        #333333,
+        #555555
+    );
 }
 
 /* RIGHT IMAGE */
@@ -54,10 +81,13 @@
     width: 500px;
     height: auto;
     border-radius: 8px;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.35);
 }
 
 /* ==========================
-     RESPONSIVE
+     RESPONSIVE (UNTOUCHED)
 ============================= */
 
 @media (max-width: 900px) {

@@ -1,6 +1,12 @@
 /* HERO BACKGROUND */
 .hero-section {
-    background: url("https://i.ibb.co/rMM8CwZ/ocean-bg.jpg") no-repeat center/cover;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.35),
+            rgba(0,0,0,0.65)
+        ),
+        url("https://i.ibb.co/rMM8CwZ/ocean-bg.jpg") no-repeat center/cover;
     min-height: 100vh;
     padding: 60px;
     position: relative;
@@ -13,16 +19,29 @@
     font-size: 85px;
     font-weight: 900;
     line-height: 1.1;
+
+    /* bold readable glow */
+    text-shadow:
+        2px 2px 0px rgba(0,0,0,0.6),
+        4px 4px 0px rgba(0,0,0,0.4),
+        0 0 25px rgba(0,115,255,0.35);
 }
 
 /* SEARCH BOX */
 .search-box {
     display: flex;
     margin-top: 20px;
-    background: #fff;
+    background: linear-gradient(
+        180deg,
+        #ffffff,
+        #f1f4ff
+    );
     width: 55%;
     border-radius: 8px;
     padding: 12px;
+
+    box-shadow:
+        0 14px 32px rgba(0,0,0,0.35);
 }
 
 .search-box input {
@@ -36,12 +55,17 @@
     font-size: 20px;
     background: none;
     cursor: pointer;
+
+    color: #003fad;
+    text-shadow: 1px 1px 0px #c7d2fe;
 }
 
 .search-note {
     margin-top: 10px;
-}
+    color: #e0e7ff;
 
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.6);
+}
 
 
 /* YELLOW FIND A GIFT TAB */
@@ -49,7 +73,11 @@
     position: absolute;
     right: 0;
     top: 120px;
-    background: #ffd500;
+    background: linear-gradient(
+        180deg,
+        #ffd500,
+        #ffcc00
+    );
     padding: 18px 10px;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -58,12 +86,18 @@
     font-size: 14px;
     color: black;
     border-radius: 5px 0 0 5px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35);
 }
 
 .gift-tab:hover {
-    background: #ffcc00;
+    background: linear-gradient(
+        180deg,
+        #ffcc00,
+        #ffb700
+    );
 }
-
 
 
 /* BLUE BOOK BAR */
@@ -71,26 +105,41 @@
     position: absolute;
     right: 0;
     bottom: 50px;
-    background: #003fad;
+    background: linear-gradient(
+        135deg,
+        #003fad,
+        #002b78
+    );
     padding: 18px;
     width: 360px;
     color: white;
     border-radius: 6px 0 0 6px;
+
+    box-shadow:
+        0 16px 35px rgba(0,0,0,0.45);
 }
 
 .blue-book-bar .book-title {
     font-size: 18px;
     font-weight: 700;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 .open-panel-btn {
     float: right;
-    background: none;
+    background: linear-gradient(
+        135deg,
+        transparent,
+        rgba(255,255,255,0.15)
+    );
     color: rgb(50, 205, 19);
     border: 1px solid white;
     padding: 5px 18px;
     border-radius: 20px;
     cursor: pointer;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.6);
 }
 
 
@@ -102,11 +151,18 @@
     top: 0;
     width: 0%;
     height: 100%;
-    background: #003fad;
+    background: linear-gradient(
+        180deg,
+        #003fad,
+        #002b78
+    );
     color: white;
     padding: 40px;
     transition: 0.6s ease;
     z-index: 999;
+
+    box-shadow:
+        -25px 0 55px rgba(0,0,0,0.55);
 }
 
 .slide-panel.active {
@@ -123,6 +179,8 @@
     color: white;
     font-size: 40px;
     cursor: pointer;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.6);
 }
 
 .panel-body {
@@ -133,23 +191,38 @@
 .panel-book-img {
     width: 40%;
     border-radius: 10px;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.45);
 }
 
 .panel-text h2 {
     font-size: 40px;
+
+    text-shadow:
+        1px 1px 0px rgba(0,0,0,0.6),
+        0 0 15px rgba(255,255,255,0.2);
 }
 
 .price {
     font-size: 20px;
     margin: 15px 0;
+
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
 }
 
 .details-btn {
-    background: white;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eaeaea
+    );
     color: black;
     border: none;
     padding: 10px 22px;
     font-weight: 700;
     border-radius: 25px;
     cursor: pointer;
+
+    text-shadow: 1px 1px 0px #c7d2fe;
 }

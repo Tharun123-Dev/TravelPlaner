@@ -1,11 +1,465 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>10 of the best road trips to take in the USA — Demo</title>
+
+  <!--
+    USAGE:
+    1) Save this file as index.html
+    2) Create a folder named "images" in the same folder as index.html
+    3) Put your screenshots in images/ and name them 01.jpg, 02.jpg, ... 17.jpg
+       OR change the <img src="images/01.jpg"> to the exact filenames you have.
+    4) Open index.html in your browser.
+  -->
+
+  <style>
+    /* ---------- Simple reset & variables ---------- */
+    :root{
+      --accent:#0b84ff;
+      --muted:#6c7176;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --maxw:1100px;
+      --shadow: 0 8px 24px rgba(20,20,50,0.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#111; line-height:1.5}
+    a{color:inherit;text-decoration:none}
+
+    /* ---------- NAVBAR ---------- */
+    nav{
+      position:sticky; top:0; z-index:120;
+      background:rgba(255,255,255,0.98); border-bottom:1px solid #e9eef4;
+      padding:10px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:8px;background:var(--accent); color:#fff; display:flex;align-items:center;justify-content:center;font-weight:700}
+    .nav-links{display:flex;gap:8px;align-items:center;overflow:auto;max-width:56vw;padding:6px 0}
+    .nav-links a{padding:6px 10px;border-radius:8px;color:var(--muted);font-size:14px}
+    .nav-links a:hover{background:#eef6ff;color:var(--accent)}
+    .btn{background:var(--accent);color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600}
+    .btn.secondary{background:#fff;color:var(--accent);border:1px solid #e6f0ff}
+
+    .nav-right{display:flex;gap:10px;align-items:center}
+    .nav-status{display:none;padding:6px 10px;border-radius:8px;border:1px dashed rgba(11,107,43,0.08);color:#0b6b2b;font-size:13px}
+
+    /* ---------- CONTENT ---------- */
+    .container{max-width:var(--maxw);margin:20px auto;padding:0 18px}
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));padding:34px;border-radius:12px;margin-bottom:18px;box-shadow:var(--shadow)}
+    .hero h1{margin:0;font-size:40px;letter-spacing:0.3px}
+    .hero .sub{color:var(--muted);margin-top:8px;font-size:15px}
+
+    article{margin-top:12px}
+    section.card{background:var(--card);padding:18px;border-radius:10px;margin-bottom:18px;box-shadow:var(--shadow)}
+    section.card h2{margin:0 0 8px;font-size:28px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+    .lead{margin-bottom:12px}
+
+    figure.s-img{margin:12px 0;border-radius:8px;overflow:hidden;border:1px solid #eee;background:#fff}
+    figure.s-img img{display:block;width:100%;height:auto;object-fit:cover}
+    figcaption{font-size:13px;color:var(--muted);text-align:center;padding:8px 6px}
+
+    /* ---------- FOOTER ---------- */
+    footer{background:#121418;color:#dfe3e7;padding:40px 18px;margin-top:24px}
+    .f-wrap{max-width:var(--maxw);margin:0 auto;display:flex;gap:18px;flex-wrap:wrap}
+    .f-col{flex:1;min-width:220px}
+    .f-title{font-weight:700;margin-bottom:8px}
+    .f-small{color:#9aa0a6;font-size:14px}
+
+    /* ---------- BOOKMARK PANEL ---------- */
+    .bookmark-panel{position:fixed;right:18px;bottom:18px;background:var(--card);padding:12px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;z-index:140}
+    .bookmark-panel small{font-size:13px;color:var(--muted)}
+
+    /* ---------- MODAL ---------- */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);z-index:200;padding:14px}
+    .modal.hidden{display:none}
+    .modal .panel{width:100%;max-width:480px;background:var(--card);padding:18px;border-radius:12px}
+    .modal label{display:block;margin:8px 0 6px;font-size:14px;color:#222}
+    .modal input{width:100%;padding:8px 10px;border-radius:8px;border:1px solid #ddd}
+
+    /* ---------- Small screens ---------- */
+    @media (max-width:720px){
+      .hero h1{font-size:28px}
+      .nav-links{max-width:40vw}
+      .f-wrap{flex-direction:column}
+      .bookmark-panel{right:10px;bottom:10px}
+    }
+  </style>
 </head>
 <body>
-    <h1>discover</h1>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="brand">
+      <div class="logo">lp</div>
+      <div>
+        <div style="font-weight:700">Lonely Demo</div>
+        <div style="color:var(--muted);font-size:13px">10 road trips — article demo</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="nav-links" aria-hidden>
+        <!-- quick jump numbers -->
+        <a href="#section1">1</a><a href="#section2">2</a><a href="#section3">3</a><a href="#section4">4</a><a href="#section5">5</a>
+        <a href="#section6">6</a><a href="#section7">7</a><a href="#section8">8</a><a href="#section9">9</a><a href="#section10">10</a>
+      </div>
+    </div>
+
+    <div class="nav-right">
+      <button id="openBook" class="btn">Book Trip</button>
+      <div id="navStatus" class="nav-status">Booked ✓</div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- HERO / TITLE -->
+    <header class="hero">
+      <h1>10 of the best road trips to take in the USA</h1>
+      <div class="sub">Wide-open landscapes, coastal drives and dramatic canyons — pick a route and start planning.</div>
+    </header>
+
+    <article>
+
+      <!-- SECTION 1 -->
+      <section id="section1" class="card route">
+        <h2>1. PACIFIC COAST HIGHWAY</h2>
+        <div class="meta"><strong>Best road trip for Pacific views</strong> — Start/finish: San Diego – Seattle · Approx. distance: 1600 miles · Time: 8–12 days</div>
+        <p class="lead">The Pacific Coast Highway stitches together the West Coast's most notable cities and coastal scenery. Expect cliff-top views, sea-spray air and charming seaside towns. This is a route for taking your time and stopping for viewpoints along the way.</p>
+        <figure class="s-img">
+          <img src="../images/road1.avif" alt="Pacific Coast Highway screenshot">
+          <figcaption>Scenic coastal drive — replace with your screenshot named <code>01.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section id="section2" class="card route">
+        <h2>2. BLUE RIDGE PARKWAY</h2>
+        <div class="meta"><strong>Best Appalachian road trip</strong> — Start/finish: Cherokee, NC – Waynesboro, VA · Approx. distance: 469 miles · Time: 2–5 days</div>
+        <p class="lead">The Blue Ridge Parkway delivers rolling green mountains, forested overlooks and many hiking opportunities. In autumn the route is awash with colour — ideal for scenic drives, short walks and viewpoint stops.</p>
+        <figure class="s-img">
+          <img src="../images/road2.avif" alt="Blue Ridge Parkway screenshot">
+          <figcaption>Motorcycles on Linn Cove Viaduct — replace with <code>02.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section id="section3" class="card route">
+        <h2>3. ROUTE 66</h2>
+        <div class="meta"><strong>Best road trip for American kitsch</strong> — Start/finish: Chicago – Los Angeles · Approx. distance: 2250 miles · Time: 1–2 weeks</div>
+        <p class="lead">Nicknamed the Mother Road, Route 66 crosses diverse landscapes, taking you through small towns, neon signs and wacky roadside attractions. Drive it in sections or all at once — there are plenty of retro diners and oddities to discover.</p>
+        <figure class="s-img">
+          <img src="../images/road3.avif"alt="Route 66 screenshot">
+          <figcaption>Classic Route 66 signage and roadside curios — replace with <code>03.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section id="section4" class="card route">
+        <h2>4. NATCHETZ TRACE PARKWAY</h2>
+        <div class="meta"><strong>Best road trip for Southern history</strong> — Start/finish: Pasquo, TN – Natchez, MS · Approx. distance: 444 miles · Time: 2–3 days</div>
+        <p class="lead">The Natchez Trace Parkway follows an ancient trail linking historical towns, grand plantations and tranquil woodlands. It’s a calm, scenic drive with cultural stops and gentle pace — perfect for combining small-town visits and scenic detours.</p>
+        <figure class="s-img">
+          <img src="../images/road4.avif" alt="Natchez Trace Parkway screenshot">
+          <figcaption>The John Coffee Memorial Bridge across the Mississippi — replace with <code>04.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section id="section5" class="card route">
+        <h2>5. BADLANDS–BLACK HILLS LOOP</h2>
+        <div class="meta"><strong>Best road trip in the Great Plains</strong> — Start/finish: Badlands National Park · Approx. distance: 330 miles · Time: 2 days</div>
+        <p class="lead">From stark canyons to rolling grassland, this loop showcases geological oddities and cultural landmarks like Mount Rushmore. The region’s dramatic vistas reward the driver who wants wide-open spaces and memorable sunset views.</p>
+        <figure class="s-img">
+          <img src="../images/road5.avif" alt="Badlands screenshot">
+          <figcaption>Badlands National Park with layered rock formations — replace with <code>05.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section id="section6" class="card route">
+        <h2>6. FLORIDA HIGHWAY 1</h2>
+        <div class="meta"><strong>Best tropical road trip</strong> — Key West & the Florida Keys · Approx. distance: varied · Time: a few days to a week</div>
+        <p class="lead">Highway 1 threads across islands and bridges with ocean on both sides. Expect warm water, marine life and casual roadside stops. It’s a short drive that feels like an escape to the tropics.</p>
+        <figure class="s-img">
+          <img src="../images/road6.avif" alt="Florida Highway 1 screenshot">
+          <figcaption>Motorcycles on Florida Highway 1 heading to Key West — replace with <code>06.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section id="section7" class="card route">
+        <h2>7. GRAND CIRCLE</h2>
+        <div class="meta"><strong>Best for red-rock canyons & national parks</strong> — Utah & northern Arizona loop</div>
+        <p class="lead">This loop gives access to some of the Southwest’s most famous parks and scenic drives: think red cliffs, expansive canyons and extraordinary desert scenery. Plan for hikes and viewpoints to make the most of the trip.</p>
+        <figure class="s-img">
+          <img src="../images/road7.avif" alt="Grand Circle screenshot">
+          <figcaption>Red-rock scenery and canyon viewpoints — replace with <code>07.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section id="section8" class="card route">
+        <h2>8. THE GREAT RIVER ROAD</h2>
+        <div class="meta"><strong>Best river scenery</strong> — Along the Mississippi River</div>
+        <p class="lead">Follow the Mississippi through river towns, levees and cultural stops. The Great River Road reveals the heartland’s history, music traditions and riverside vistas — a mellow route with lots of local character.</p>
+        <figure class="s-img">
+          <img src="../images/road8.avif" alt="Great River Road screenshot">
+          <figcaption>Mississippi River views and bridges — replace with <code>08.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 9 -->
+      <section id="section9" class="card route">
+        <h2>9. THE ALASKA HIGHWAY</h2>
+        <div class="meta"><strong>Best remote road trip</strong> — Vast wilderness and wildlife</div>
+        <p class="lead">Long distances and remote services make this a trip for prepared travelers. Expect incredible wildlife sightings, alpine views and true wilderness roads. Allow extra time for weather and road conditions.</p>
+        <figure class="s-img">
+          <img src="../images/road9.avif" alt="Alaska Highway screenshot">
+          <figcaption>Wide-open Alaskan landscapes — replace with <code>09.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- SECTION 10 -->
+      <section id="section10" class="card route">
+        <h2>10. CABOT TRAIL</h2>
+        <div class="meta"><strong>Best coastal cliffs</strong> — Cape Breton scenic drive (example)</div>
+        <p class="lead">Winding coastal roads, dramatic headlands and picnic spots — this drive is especially beautiful in autumn when the colours change. Stop for short hikes and lookouts for sweeping sea views.</p>
+        <figure class="s-img">
+          <img src="../images/road10.avif" alt="Cabot Trail screenshot">
+          <figcaption>Cliffside views and blue water — replace with <code>10.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <!-- (Optional extra sections 11–17 if you'd like more) -->
+      <!-- Replace images/11.jpg...images/17.jpg with your own screenshots as needed. -->
+      <section id="section11" class="card route">
+        <h2>11. PARKWAY & MOUNTAIN DRIVE</h2>
+        <div class="meta"><strong>Great scenic detours</strong></div>
+        <p class="lead">A collection of scenic drives through mountains, with winding roads and lookout points — great for shorter day trips and photo stops.</p>
+        <figure class="s-img">
+          <img src="../images/road1.avif" alt="Mountain road screenshot">
+          <figcaption>Typical mountain viewpoint — replace with <code>11.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <section id="section12" class="card route">
+        <h2>12. COASTAL & BEACH ROUTES</h2>
+        <div class="meta"><strong>Great for seaside towns</strong></div>
+        <p class="lead">A selection of coastal drives that highlight beaches, lighthouses and relaxed towns. These are perfect if you prefer short stops and seafood restaurants along the way.</p>
+        <figure class="s-img">
+          <img src="../images/road2.avif" alt="Coast screenshot">
+          <figcaption>Coastal drive scene — replace with <code>12.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <section id="section13" class="card route">
+        <h2>13. DESERT EXPRESS</h2>
+        <div class="meta"><strong>Best for desert light and stars</strong></div>
+        <p class="lead">Desert drives let you experience sky, silence and wide-open horizons. Travel at dawn or dusk for dramatic shading and great photography.</p>
+        <figure class="s-img">
+          <img src="../images/road3.avif" alt="Desert screenshot">
+          <figcaption>Desert route — replace with <code>13.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <section id="section14" class="card route">
+        <h2>14. LAKESIDE ROUTES</h2>
+        <div class="meta"><strong>Quiet drives by water</strong></div>
+        <p class="lead">Lake loops and riverside drives are ideal for calm getaways — bring boots for short walks and a picnic for the shore.</p>
+        <figure class="s-img">
+          <img src="../images/road4.avif" alt="Lake screenshot">
+          <figcaption>Lake and woodlands — replace with <code>14.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <section id="section15" class="card route">
+        <h2>15. NATIONAL PARK CLUSTER</h2>
+        <div class="meta"><strong>Hop between parks</strong></div>
+        <p class="lead">Plan a route that links several parks for an intense nature trip — best when you allow time for hikes and exploration.</p>
+        <figure class="s-img">
+          <img src="../images/road5.avif" alt="National park screenshot">
+          <figcaption>National parks cluster example — replace with <code>15.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <section id="section16" class="card route">
+        <h2>16. URBAN HOPPER</h2>
+        <div class="meta"><strong>City-to-city route</strong></div>
+        <p class="lead">If you love museums, food and architecture, take a city-hopping trip between major urban centers, with short countryside stretches between them.</p>
+        <figure class="s-img">
+          <img src="../images/road7.avif" alt="City screenshot">
+          <figcaption>City skyline example — replace with <code>16.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+      <section id="section17" class="card route">
+        <h2>17. SUNSET & VIEWPOINT ROUTE</h2>
+        <div class="meta"><strong>Best for evening drives</strong></div>
+        <p class="lead">Curate a short route with several viewpoints for sunset or sunrise photography — short, memorable and easy to plan.</p>
+        <figure class="s-img">
+          <img src="../images/road8.avif" alt="Sunset screenshot">
+          <figcaption>Sunset vista — replace with <code>17.jpg</code>.</figcaption>
+        </figure>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- BOOKMARK floating panel -->
+  <div class="bookmark-panel" role="region" aria-label="bookmark">
+    <button id="bookmarkBtn" class="btn secondary">Bookmark current</button>
+    <small id="bookmarkNote">Save the visible section</small>
+  </div>
+
+  <!-- BOOK TRIP MODAL -->
+  <div id="bookModal" class="modal hidden" aria-hidden="true">
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="bookTitle">
+      <h3 id="bookTitle">Book Trip</h3>
+      <p style="color:var(--muted);margin-top:0">Enter phone and email — cost shown below. This demo doesn't send data anywhere.</p>
+
+      <label for="phone">Phone</label>
+      <input id="phone" placeholder="+1 555 555 5555">
+
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com">
+
+      <label for="cost">Cost</label>
+      <input id="cost" value="$199" readonly>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+        <button id="cancelBook" class="btn secondary">Cancel</button>
+        <button id="confirmBook" class="btn">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="f-wrap">
+      <div class="f-col">
+        <div class="f-title">lonely planet — demo</div>
+        <div class="f-small">This is a demo footer that mimics the layout from the screenshots. Use it for links, newsletter or copyright text.</div>
+      </div>
+
+      <div class="f-col">
+        <div class="f-title">Top destinations</div>
+        <div class="f-small">New York · Paris · Italy · Costa Rica · Japan</div>
+      </div>
+
+      <div class="f-col">
+        <div class="f-title">Interests</div>
+        <div class="f-small">Road Trips · Hiking · Food & Drink · Wildlife</div>
+      </div>
+
+      <div class="f-col">
+        <div class="f-title">About</div>
+        <div class="f-small">About this demo · Contact · Privacy</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ------------ Minimal JS: smooth scroll, bookmark, modal, booking  ------------ -->
+  <script>
+    /* Smooth scroll for internal links */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const id = this.getAttribute('href');
+        if(!id || id === '#') return;
+        const target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    /* Bookmark logic (localStorage) */
+    const bookmarkBtn = document.getElementById('bookmarkBtn');
+    const bookmarkNote = document.getElementById('bookmarkNote');
+
+    function getTopVisibleSectionId(){
+      const sections = document.querySelectorAll('main .route');
+      let best = null; let bestVal = Infinity;
+      sections.forEach(s=>{
+        const r = s.getBoundingClientRect();
+        const val = Math.abs(Math.max(r.top, 0));
+        if(val < bestVal){ bestVal = val; best = s; }
+      });
+      return best?.id || null;
+    }
+
+    bookmarkBtn.addEventListener('click', ()=>{
+      const id = getTopVisibleSectionId();
+      if(!id) return alert('No section found');
+      localStorage.setItem('demo_bookmark', id);
+      bookmarkNote.textContent = 'Bookmarked: ' + id;
+      bookmarkBtn.textContent = 'Bookmarked ✓';
+      setTimeout(()=>bookmarkBtn.textContent = 'Bookmark current', 1500);
+    });
+
+    window.addEventListener('load', ()=>{
+      const saved = localStorage.getItem('demo_bookmark');
+      if(saved){
+        const el = document.getElementById(saved);
+        if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        bookmarkNote.textContent = 'Restored: ' + saved;
+      }
+      // show booked indicator if booking previously confirmed
+      const booked = localStorage.getItem('demo_booked');
+      if(booked === 'true'){
+        document.getElementById('navStatus').style.display = 'inline-block';
+      }
+    });
+
+    /* Book Trip modal */
+    const openBook = document.getElementById('openBook');
+    const bookModal = document.getElementById('bookModal');
+    const cancelBook = document.getElementById('cancelBook');
+    const confirmBook = document.getElementById('confirmBook');
+
+    function openModal(){ bookModal.classList.remove('hidden'); bookModal.setAttribute('aria-hidden','false'); }
+    function closeModal(){ bookModal.classList.add('hidden'); bookModal.setAttribute('aria-hidden','true'); }
+
+    openBook.addEventListener('click', openModal);
+    cancelBook.addEventListener('click', closeModal);
+
+    confirmBook.addEventListener('click', ()=>{
+      const phone = document.getElementById('phone').value.trim();
+      const email = document.getElementById('email').value.trim();
+      if(!phone || !email) return alert('Enter phone and email');
+      // Demo confirmation
+      alert('Booked successfully!\\nPhone: ' + phone + '\\nEmail: ' + email + '\\nCost: ' + document.getElementById('cost').value);
+      localStorage.setItem('demo_booked', 'true');
+      document.getElementById('navStatus').style.display = 'inline-block';
+      closeModal();
+    });
+
+    // close modal clicking outside panel
+    bookModal.addEventListener('click', (e)=>{
+      if(e.target === bookModal) closeModal();
+    });
+
+    // small update while scrolling: show current section in bookmark note
+    let last = '';
+    function updateCurrentNote(){
+      const id = getTopVisibleSectionId();
+      if(id && id !== last){
+        last = id;
+        bookmarkNote.textContent = 'Current: ' + id;
+      }
+    }
+    window.addEventListener('scroll', throttle(updateCurrentNote, 150));
+
+    function throttle(fn, wait){
+      let t = null;
+      return function(...args){
+        if(t) return;
+        t = setTimeout(()=>{ fn(...args); t=null; }, wait);
+      }
+    }
+  </script>
 </body>
 </html>
