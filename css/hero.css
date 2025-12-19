@@ -1,4 +1,4 @@
-/* HERO BACKGROUND */
+/* HERO BACKGROUND
 .hero-section {
     background:
         linear-gradient(
@@ -8,11 +8,11 @@
         ),
         url("https://i.ibb.co/rMM8CwZ/ocean-bg.jpg") no-repeat center/cover;
     min-height: 100vh;
-    padding: 60px;
+    padding: 100px;
     position: relative;
     color: white;
-}
-
+  
+} */
 
 /* MAIN TITLE */
 .hero-title {

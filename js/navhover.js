@@ -34,3 +34,65 @@ form.addEventListener("submit", function (e) {
     }
 });
 
+
+// document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+//     link.addEventListener('click', () => {
+//         const menu = document.querySelector('.navbar-collapse');
+//         if (menu.classList.contains('show')) {
+//             new bootstrap.Collapse(menu).hide();
+//         }
+//     });
+// });
+
+
+
+// document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+
+//     // CLICK (mobile + desktop)
+//     link.addEventListener('click', () => {
+//         closeNavbar();
+//     });
+
+//     // HOVER (desktop support)
+//     link.addEventListener('mouseenter', () => {
+//         closeNavbar();
+//     });
+
+// });
+
+// function closeNavbar() {
+//     const navbarCollapse = document.querySelector('.navbar-collapse');
+
+//     if (navbarCollapse.classList.contains('show')) {
+//         const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+//             toggle: false
+//         });
+//         bsCollapse.hide();
+//     }
+// }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const navLinks = document.querySelectorAll(".navbar-collapse .nav-link");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+
+            // ONLY close if navbar is open (mobile)
+            if (navbarCollapse.classList.contains("show")) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+
+        });
+    });
+
+});
+
+
+
+
