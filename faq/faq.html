@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nani Travel Guide – FAQ</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+/* ===== FULL BACKGROUND ===== */
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* ===== WELCOME SECTION ===== */
+.welcome {
+  text-align: center;
+  animation: fadeIn 1s;
+}
+
+.welcome h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 25px;
+  opacity: 0.9;
+}
+
+/* ===== FAQ ICON ===== */
+.faq-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  color: #4f46e5;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: auto;
+  animation: bounce 2s infinite;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== FAQ BOX ===== */
+.faq-box {
+  background: white;
+  color: black;
+  width: 90%;
+  max-width: 650px;
+  max-height: 85vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  animation: slideUp 0.4s;
+}
+
+/* ===== HEADER ===== */
+.faq-header {
+  background: #4f46e5;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== FAQ ITEMS ===== */
+.faq-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.question {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #f3f4f6;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  padding: 15px;
+  color: #444;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== WELCOME SECTION ===== -->
+<div class="welcome">
+  <h1>🌍 Nani Travel Guide</h1>
+  <p>
+    Nani Travel Guide helps you discover nearby places, plan trips,
+    explore destinations, and travel smarter with easy guidance.
+  </p>
+
+  <div class="faq-icon" onclick="openFAQ()">❓</div>
+
+  <p style="margin-top:15px; font-size:14px;">
+    Click the FAQ icon to see most asked questions
+  </p>
+</div>
+
+<!-- ===== FAQ OVERLAY ===== -->
+<div class="overlay" id="overlay">
+  <div class="faq-box">
+
+    <div class="faq-header">
+      <h3>Frequently Asked Questions</h3>
+      <span style="cursor:pointer" onclick="closeFAQ()">✖</span>
+    </div>
+
+    <!-- FAQ QUESTIONS -->
+    <div class="faq-item">
+      <button class="question">What is Nani Travel Guide?</button>
+      <div class="answer">
+        Nani Travel Guide is a travel planning and destination guide app.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">Is this app free to use?</button>
+      <div class="answer">
+        Yes, basic features are completely free.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">Can I find nearby tourist places?</button>
+      <div class="answer">
+        Yes, nearby tourist spots are shown using your location.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">Is this useful for solo travelers?</button>
+      <div class="answer">
+        Yes, it is very helpful and safe for solo travelers.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">Does it show maps and directions?</button>
+      <div class="answer">
+        Yes, maps and directions are available.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">Can I plan trips by budget?</button>
+      <div class="answer">
+        Yes, budget-based travel suggestions are provided.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">Is it beginner friendly?</button>
+      <div class="answer">
+        Yes, anyone can easily use this app.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openFAQ() {
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closeFAQ() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+const questions = document.querySelectorAll(".question");
+
+questions.forEach(q => {
+  q.addEventListener("click", () => {
+    const ans = q.nextElementSibling;
+    document.querySelectorAll(".answer").forEach(a => a.style.display = "none");
+    ans.style.display = "block";
+  });
+});
+</script>
+
+</body>
+</html>
